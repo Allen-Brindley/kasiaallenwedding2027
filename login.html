@@ -1,0 +1,142 @@
+<!DOCTYPE html lang="en">
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kasia & Allen | The Login </title>
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.ico">
+    <!-- <link rel="apple-touch-icon" href="/assets/favicon.ico">
+    <link rel="icon" sizes="192x192" href="/assets/favicon.ico"> -->
+
+    <meta property="og:site_name" content="Kasia & Allen | Wedding" />
+    <meta property="og:url" content="ourwildwedding.it" />
+    <meta property="og:type" content="website" />
+    <meta name="title" property="og:title" content="Kasia & Allen | Wedding" />
+    <meta name="image" property="og:image"
+        content="https://raw.githubusercontent.com/francesco-puppo/wedding/main/assets/hero-bg.jpg" />
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="2500">
+    <meta property="og:image:height" content="1475">
+    <meta name="description" property="og:description" content="Our wedding in Poland" />
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="jxxcVUbhHgWZDecGTCOx3kGxCtzgOh8bgWVPukcXpKU" name="google-site-verification">
+    <meta name="theme-color" content="#f6f2e9">
+    <meta name="theme-color" content="#f6f2e9">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css" media="all">
+    <style>
+        .internal .hero .img-bottom.img-right {
+            width: 30vw;
+            right: calc(-10% + 50px);
+        }
+        .internal .hero .img-bottom.img-centre {
+            width: 20vw;
+        }
+        .internal .hero .img-bottom.img-left {
+         width: 20vw;
+         left: calc(-5% + 30px);
+        }
+        #pass {
+            width: 300px;
+            height: 40px;
+            font-size: 1rem;
+            padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+            border: 0px solid #999;
+            border-radius: 6px;
+            background: #dddad2;
+        }        
+        #loginForm button[type="submit"] {
+            width: 90px;
+            height: 40px;
+            font-size: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--text);
+            font-weight: 400;
+            border: 0px solid #999;
+            border-radius: 6px;
+            background: #dddad2;
+            cursor: pointer;
+        }
+        .cheeto-rotated {
+            width: 40vw;
+            transform: rotate(-90deg);
+            transform-origin: center;
+            right: calc(-5% -    20px);
+        }
+        .cheeto-entry {
+            animation: cheeto-entry 10s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+        }
+        @keyframes cheeto-entry {
+            0% {
+                transform: translate(1000px, -1000px) rotate(0deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(-90deg);
+            }
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/3b059272ba.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="internal">
+    <section class="hero">
+        <img class="img-over img-top img-left slide-in-blurred-tl dur-3" src="assets/watercolour_leaves.png">
+        <img class="img-over img-top img-right cheeto-rotated cheeto-entry" src="assets/cheeto-small.png">
+        <img class="img-over img-bottom img-left slide-in-blurred-bl dur-2" src="assets/alfred-small.png">
+        <img class="img-over img-bottom img-centre slide-in-blurred-br dur-2" src="assets/ruby.png">
+        <img class="img-over img-bottom img-right slide-in-blurred-br dur-2" src="assets/HUNTER.png">
+        <div>
+            <h1>
+                Please enter the password.
+            </h1>
+            <form id="loginForm" novalidate>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                    <div style="position: relative; display: inline-flex; align-items: center;">
+                        <input type="password" id="pass" name="password" required style="padding-right: 2rem;" />
+                        <button type="button" id="togglePassword" aria-label="Show password" style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: url('assets/eye.png') center/contain no-repeat; width: 18px; height: 18px; border: none; cursor: pointer; padding: 0; background-color: transparent;"></button>
+                    </div>
+                    <button type="submit" class="menu">Enter</button>
+                </div>
+                <p id="errorMsg" style="color: #b00020; margin-top: 0.75rem;"></p>
+            </form>
+        </div>
+        <script>
+            const correctPassword = 'EveryoneLovesHunter';
+            const form = document.getElementById('loginForm');
+            const input = document.getElementById('pass');
+            const toggleButton = document.getElementById('togglePassword');
+            const errorMsg = document.getElementById('errorMsg');
+
+            toggleButton.addEventListener('click', function () {
+                const isPassword = input.type === 'password';
+                input.type = isPassword ? 'text' : 'password';
+                toggleButton.style.backgroundImage = isPassword ? 'url("assets/visible.png")' : 'url("assets/eye.png")';
+            });
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const enteredPassword = input.value.trim();
+
+                if (enteredPassword === correctPassword) {
+                    localStorage.setItem('weddingAccess', 'true');
+                    window.location.href = 'home.html';
+                } else {
+                    errorMsg.textContent = 'That password is incorrect. Please try again.';
+                    input.value = '';
+                    input.focus();
+                }
+            });
+        </script>
+    </section>
+</body>
+</html>
