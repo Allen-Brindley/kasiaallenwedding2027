@@ -64,13 +64,32 @@ p {
 }
 
 h1 a,
-h1 a:visited {
+h1 a:visited,
+h2 a,
+h2 a:visited,
+h3 a,
+h3 a:visited {
     color: var(--text);
     display: inline-block;
+    text-decoration: none;
     transition:all 0.75s ease-in-out;
 }
-h1 a:hover {
+h1 a:hover,
+h2 a:hover,
+h3 a:hover {
     color: var(--red);
+}
+
+a.title-link,
+a.title-link:visited {
+    text-decoration: underline;
+    text-decoration-thickness: 0.12em;
+    text-underline-offset: 0.16em;
+    text-decoration-color: var(--light-green);
+}
+
+a.title-link:hover {
+    text-decoration-color: var(--red);
 }
 
 input[type=text] {
@@ -315,6 +334,14 @@ section.alt {
     height: 620px;
 }
 
+#polski iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+    box-shadow: var(--shadow-1-elevation-high);
+}
+
 
 /* section.video p.bigtext {
     line-height: .95em;
@@ -461,6 +488,19 @@ PAGE WHERE
     z-index: 0;
     right: -10%;
     bottom: -10%;
+}
+
+#schedule img.piper {
+    right: -12%;
+    bottom: -18%;
+    width: 34vw;
+    height: auto;
+}
+
+.tips #schedule {
+    min-height: 60vh;
+    padding: 5rem 0 4rem;
+    justify-content: center;
 }
 
 .internal .rsvp {
@@ -1286,6 +1326,12 @@ HONEYMOON
         bottom: -10%;
     }
 
+    #schedule img.piper {
+        width: 64vw;
+        right: -18%;
+        bottom: -12%;
+    }
+
     .honeymoon.internal section.hero {
         height: auto;
         min-height: 100svh;
@@ -2058,6 +2104,12 @@ RESPONSIVENESS
     .internal .hero .img-bottom.img-right {
         height: 65vw;
         width: auto;
+    }
+
+    #schedule img.piper {
+        width: 80vw;
+        right: -22%;
+        bottom: -16%;
     }
 
     section.standard {

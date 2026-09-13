@@ -47,6 +47,9 @@
         <img class="img-under img-bottom honeymoon-bg" src="assets/africa-grass.png" alt="">
         <div>
             <h1>For our honeymoon, we would love to book a safari in South Africa.</h1>
+            <audio id="honeymoon-song" autoplay preload="auto">
+                <source src="assets/01%20Circle%20of%20Life_Nants%27%20Ingonyama.mp3" type="audio/mpeg">
+            </audio>
             <h1>
                 You can donate using the account details below or via <a class="daje" href="https://revolut.me/kasia_allen_joint_rev" target="_blank">this link</a>.
             </h1>
@@ -81,5 +84,15 @@
             </div>
         </div>
     </section>
+    <script>
+        (function () {
+            var audio = document.getElementById('honeymoon-song');
+            if (!audio || !audio.play) return;
+            var attempt = audio.play();
+            if (attempt && typeof attempt.catch === 'function') {
+                attempt.catch(function () {});
+            }
+        })();
+    </script>
 </body>
 </html>
