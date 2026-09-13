@@ -1013,8 +1013,14 @@ HONEYMOON
 }
 
 .honeymoon div.navigation {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 5%;
+    margin: 0 auto;
     width: 80vw;
     justify-content: space-between;
+    z-index: 10;
 }
 
 .honeymoon h1 {
@@ -1376,6 +1382,9 @@ HONEYMOON
     }
 
     .honeymoon div.navigation {
+        left: 0.6rem;
+        right: 0.6rem;
+        bottom: 0.6rem;
         width: auto;
         justify-content: center;
     }
