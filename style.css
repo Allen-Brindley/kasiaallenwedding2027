@@ -736,6 +736,210 @@ SCHEDULE TIMELINE
     max-width: 28rem;
 }
 
+html.schedule-page {
+    scroll-snap-type: y proximity;
+}
+
+.schedule-page .arrow-bounce {
+    bottom: 9rem;
+    z-index: 3;
+}
+
+.day-story-recap > .arrow-bounce {
+    position: relative;
+    bottom: auto;
+    margin-top: 2rem;
+    margin-bottom: 7rem;
+}
+
+#schedule.day-story,
+#day2.day-story {
+    padding: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.day-story-beats {
+    width: 100%;
+}
+
+.story-beat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    min-height: 50svh;
+    padding: 1.5rem 1.5rem;
+    box-sizing: border-box;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+.story-beat-inner {
+    max-width: 38rem;
+}
+
+.story-beat-kicker {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin: 0 0 1.1rem;
+    opacity: 0.62;
+}
+
+.story-beat-time {
+    font-size: clamp(2rem, 5.5vw, 3.4rem);
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.story-beat-title {
+    font-size: clamp(2.4rem, 7vw, 4.4rem);
+    font-weight: 400;
+    line-height: 1.08;
+    margin: 0.35rem 0 0;
+}
+
+.story-beat .description,
+.story-beat .smalldetail {
+    margin: 1rem auto 0;
+}
+
+.story-beat-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin-top: 1.5rem;
+    color: var(--light-green);
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 3;
+    animation: story-hint-bounce 2s ease-in-out infinite;
+}
+
+.story-beat-hint:visited,
+.story-beat-hint:hover,
+.story-beat-hint:any-link {
+    color: var(--light-green);
+}
+
+@keyframes story-hint-bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+.day-story-recap {
+    width: 100%;
+    min-height: 100svh;
+    padding: 6rem 10em 5.5rem;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    scroll-snap-align: start;
+    scroll-margin-top: 0.5rem;
+}
+
+.day-story-recap-inner {
+    width: 100%;
+    align-items: center;
+}
+
+html.day-story-ready .story-beat-inner {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(6px);
+    transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
+}
+
+html.day-story-ready .story-beat.is-inview .story-beat-inner {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+}
+
+html.day-story-ready .story-beat-hint {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease 0.2s;
+}
+
+html.day-story-ready .story-beat.is-inview .story-beat-hint {
+    opacity: 0.45;
+    pointer-events: auto;
+}
+
+html.day-story-ready .day-story-recap-inner {
+    opacity: 0;
+    transform: scale(1.12);
+    transform-origin: center top;
+    transition: opacity 0.9s ease, transform 1.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.day-story-ready .day-story-recap.is-inview .day-story-recap-inner {
+    opacity: 1;
+    transform: scale(1);
+}
+
+html.day-story-ready .day-story-recap .timeline::before,
+html.day-story-ready .day-story-recap .timeline::after {
+    opacity: 0;
+    transition: opacity 0.8s ease 0.15s;
+}
+
+html.day-story-ready .day-story-recap.is-revealed .timeline::before,
+html.day-story-ready .day-story-recap.is-revealed .timeline::after {
+    opacity: 1;
+}
+
+html.day-story-ready .day-story-recap .timeline-item {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+    transition-delay: calc(0.2s + (var(--i, 0) * 0.08s));
+}
+
+html.day-story-ready .day-story-recap.is-revealed .timeline-item {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.schedule-page {
+        scroll-snap-type: none;
+    }
+
+    .day-story-beats {
+        display: none;
+    }
+
+    html.day-story-ready .day-story-recap-inner,
+    html.day-story-ready .day-story-recap .timeline-item,
+    html.day-story-ready .day-story-recap .timeline::before,
+    html.day-story-ready .day-story-recap .timeline::after {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+    }
+
+    .story-beat-hint {
+        animation: none;
+    }
+}
+
 /***
 HONEYMOON
 ***/
@@ -889,6 +1093,15 @@ font-size: 1.5rem;
 
     .timeline-event h3 {
         font-size: 1.55rem;
+    }
+
+    .story-beat {
+        min-height: 50svh;
+        padding: 1.25rem 1.25rem 5.5rem;
+    }
+
+    .day-story-recap {
+        padding: 4rem 1.25rem 5.5rem;
     }
 
     div.navigation {
