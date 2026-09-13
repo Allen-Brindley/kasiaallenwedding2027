@@ -64,13 +64,32 @@ p {
 }
 
 h1 a,
-h1 a:visited {
+h1 a:visited,
+h2 a,
+h2 a:visited,
+h3 a,
+h3 a:visited {
     color: var(--text);
     display: inline-block;
+    text-decoration: none;
     transition:all 0.75s ease-in-out;
 }
-h1 a:hover {
+h1 a:hover,
+h2 a:hover,
+h3 a:hover {
     color: var(--red);
+}
+
+a.title-link,
+a.title-link:visited {
+    text-decoration: underline;
+    text-decoration-thickness: 0.12em;
+    text-underline-offset: 0.16em;
+    text-decoration-color: var(--light-green);
+}
+
+a.title-link:hover {
+    text-decoration-color: var(--red);
 }
 
 input[type=text] {
@@ -315,6 +334,14 @@ section.alt {
     height: 620px;
 }
 
+#polski iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+    box-shadow: var(--shadow-1-elevation-high);
+}
+
 
 /* section.video p.bigtext {
     line-height: .95em;
@@ -461,6 +488,19 @@ PAGE WHERE
     z-index: 0;
     right: -10%;
     bottom: -10%;
+}
+
+#schedule img.piper {
+    right: -12%;
+    bottom: -18%;
+    width: 34vw;
+    height: auto;
+}
+
+.tips #schedule {
+    min-height: 60vh;
+    padding: 5rem 0 4rem;
+    justify-content: center;
 }
 
 .internal .rsvp {
@@ -629,19 +669,373 @@ p.description {
 }
 
 /***
+SCHEDULE TIMELINE
+***/
+
+.timeline-deco {
+    width: min(140px, 28vw);
+    height: auto;
+    margin-bottom: 1.25rem;
+    pointer-events: none;
+}
+
+#schedule,
+#day2 {
+    padding-bottom: 5.5rem;
+    justify-content: flex-start;
+}
+
+.timeline {
+    --time-col: 9rem;
+    --rail-col: 1.75rem;
+    --rail-gap: 1rem;
+    --line-x: calc(var(--time-col) + var(--rail-gap) + (var(--rail-col) / 2));
+    list-style: none;
+    width: min(720px, 100%);
+    margin: 3rem 0 0;
+    padding: 0.35rem 0 1.25rem;
+    position: relative;
+    text-align: left;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0.7rem;
+    bottom: 0.35rem;
+    left: var(--line-x);
+    width: 1.5px;
+    background: var(--green);
+    transform: translateX(-50%);
+}
+
+.timeline::after {
+    content: "";
+    position: absolute;
+    left: var(--line-x);
+    bottom: 0;
+    width: 8px;
+    height: 8px;
+    border-right: 1.5px solid var(--green);
+    border-bottom: 1.5px solid var(--green);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: var(--time-col) var(--rail-col) minmax(0, 1fr);
+    column-gap: var(--rail-gap);
+    align-items: start;
+    padding-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.2;
+    text-align: right;
+    color: var(--green);
+    padding-top: 0.15rem;
+    white-space: nowrap;
+}
+
+.timeline-dot {
+    width: 14px;
+    height: 14px;
+    margin-top: 0.45rem;
+    justify-self: center;
+    border-radius: 50%;
+    background: var(--beige);
+    border: 2.5px solid var(--green);
+    box-shadow: 0 0 0 4px var(--beige);
+    z-index: 1;
+}
+
+.timeline-event {
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    width: 100%;
+}
+
+.timeline-event h3 {
+    font-size: 1.85rem;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.timeline-event .description,
+.timeline-event .smalldetail {
+    margin: 0.45rem 0 0;
+    max-width: 28rem;
+}
+
+html.schedule-page {
+    scroll-snap-type: y proximity;
+}
+
+.schedule-page .arrow-bounce {
+    bottom: 9rem;
+    z-index: 3;
+}
+
+.day-story-recap > .arrow-bounce {
+    position: relative;
+    bottom: auto;
+    margin-top: 2rem;
+    margin-bottom: 7rem;
+}
+
+#schedule.day-story,
+#day2.day-story {
+    padding: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.day-story-beats {
+    width: 100%;
+}
+
+.story-beat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    min-height: 50svh;
+    padding: 1.5rem 1.5rem;
+    box-sizing: border-box;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+.story-beat-inner {
+    max-width: 38rem;
+}
+
+.story-beat-kicker {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin: 0 0 1.1rem;
+    opacity: 0.62;
+}
+
+.story-beat-time {
+    font-size: clamp(2rem, 5.5vw, 3.4rem);
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.story-beat-title {
+    font-size: clamp(2.4rem, 7vw, 4.4rem);
+    font-weight: 400;
+    line-height: 1.08;
+    margin: 0.35rem 0 0;
+}
+
+.story-beat .description,
+.story-beat .smalldetail {
+    margin: 1rem auto 0;
+}
+
+.story-beat-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    margin-top: 1.5rem;
+    color: var(--light-green);
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 3;
+    animation: story-hint-bounce 2s ease-in-out infinite;
+}
+
+.story-beat-hint:visited,
+.story-beat-hint:hover,
+.story-beat-hint:any-link {
+    color: var(--light-green);
+}
+
+@keyframes story-hint-bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+.day-story-recap {
+    width: 100%;
+    min-height: 100svh;
+    padding: 6rem 10em 5.5rem;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    scroll-snap-align: start;
+    scroll-margin-top: 0.5rem;
+}
+
+.day-story-recap-inner {
+    width: 100%;
+    align-items: center;
+}
+
+html.day-story-ready .story-beat-inner {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(6px);
+    transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
+}
+
+html.day-story-ready .story-beat.is-inview .story-beat-inner {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+}
+
+html.day-story-ready .story-beat-hint {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease 0.2s;
+}
+
+html.day-story-ready .story-beat.is-inview .story-beat-hint {
+    opacity: 0.45;
+    pointer-events: auto;
+}
+
+html.day-story-ready .day-story-recap-inner {
+    opacity: 0;
+    transform: scale(1.12);
+    transform-origin: center top;
+    transition: opacity 0.9s ease, transform 1.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.day-story-ready .day-story-recap.is-inview .day-story-recap-inner {
+    opacity: 1;
+    transform: scale(1);
+}
+
+html.day-story-ready .day-story-recap .timeline::before,
+html.day-story-ready .day-story-recap .timeline::after {
+    opacity: 0;
+    transition: opacity 0.8s ease 0.15s;
+}
+
+html.day-story-ready .day-story-recap.is-revealed .timeline::before,
+html.day-story-ready .day-story-recap.is-revealed .timeline::after {
+    opacity: 1;
+}
+
+html.day-story-ready .day-story-recap .timeline-item {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+    transition-delay: calc(0.2s + (var(--i, 0) * 0.08s));
+}
+
+html.day-story-ready .day-story-recap.is-revealed .timeline-item {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.schedule-page {
+        scroll-snap-type: none;
+    }
+
+    .day-story-beats {
+        display: none;
+    }
+
+    html.day-story-ready .day-story-recap-inner,
+    html.day-story-ready .day-story-recap .timeline-item,
+    html.day-story-ready .day-story-recap .timeline::before,
+    html.day-story-ready .day-story-recap .timeline::after {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+    }
+
+    .story-beat-hint {
+        animation: none;
+    }
+}
+
+/***
 HONEYMOON
 ***/
 
 
-.honeymoon .hero {
-    padding: 0em 13em;
+.honeymoon.internal section.hero {
+    height: auto;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 5rem 13em 9rem;
 }
+
+.honeymoon .hero > div {
+    position: relative;
+    z-index: 2;
+}
+
+.honeymoon .honeymoon-bg {
+    z-index: 0;
+    left: -450px;
+    right: auto;
+    bottom: auto;
+    top: auto;
+    width: calc(100% + 450px);
+    height: calc(100% + 150px);
+    object-fit: cover;
+    object-position: center bottom;
+    animation: none;
+    opacity: 0.2;
+}
+
 .honeymoon div.navigation {
-    width:80vw;
-justify-content: space-between;
+    position: fixed;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 1.5rem;
+    margin: 0 auto;
+    width: 80vw;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 10;
 }
+
+.honeymoon.internal .logo,
+.honeymoon.internal .rsvp {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+}
+
 .honeymoon h1 {
-    margin-bottom: 4rem
+    margin-bottom: 4rem;
 }
 
 .honeymoon span.iban {
@@ -652,7 +1046,7 @@ justify-content: space-between;
 
 .honeymoon span.iban_details {
     display: block;
-font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 
@@ -745,6 +1139,51 @@ font-size: 1.5rem;
         width: 100%;
         padding: 0;
         margin-bottom: 2rem;
+    }
+
+    .timeline {
+        --time-col: 0;
+        --rail-col: 1.5rem;
+        --rail-gap: 0.85rem;
+        --line-x: calc(var(--rail-col) / 2);
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .timeline-item {
+        grid-template-columns: var(--rail-col) minmax(0, 1fr);
+        padding-bottom: 1.75rem;
+    }
+
+    .timeline-time {
+        grid-column: 2;
+        text-align: left;
+        font-size: 1.15rem;
+        padding-top: 0;
+        margin-bottom: 0.2rem;
+    }
+
+    .timeline-dot {
+        grid-column: 1;
+        grid-row: 1 / span 3;
+        margin-top: 0.3rem;
+    }
+
+    .timeline-event {
+        grid-column: 2;
+    }
+
+    .timeline-event h3 {
+        font-size: 1.55rem;
+    }
+
+    .story-beat {
+        min-height: 50svh;
+        padding: 1.25rem 1.25rem 5.5rem;
+    }
+
+    .day-story-recap {
+        padding: 4rem 1.25rem 5.5rem;
     }
 
     div.navigation {
@@ -904,17 +1343,49 @@ font-size: 1.5rem;
         bottom: -10%;
     }
 
-    .honeymoon .construction-banner {
-        font-size: clamp(1.2rem, 3.5vw, 1.8rem);
-        padding: 0.9rem 0.8rem;
+    #schedule img.piper {
+        width: 64vw;
+        right: -18%;
+        bottom: -12%;
+    }
+
+    .honeymoon.internal section.hero {
+        height: auto;
+        min-height: 100svh;
+        box-sizing: border-box;
+        overflow: hidden;
+        padding: 4.5rem 1.25rem 6.5rem;
     }
 
     .honeymoon h1 {
-        margin-bottom: 2rem;
+        margin-bottom: 1.15rem;
+        line-height: 1.25;
+    }
+
+    .honeymoon .columns {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .honeymoon .column {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 1.25rem;
+    }
+
+    .honeymoon .columns .column:first-child {
+        margin-bottom: 1.5rem;
+    }
+
+    .honeymoon .column img {
+        width: min(200px, 62vw);
+        max-width: 100%;
+        height: auto;
     }
 
     .honeymoon span.iban {
         font-size: 1.3rem;
+        word-break: break-word;
     }
 
     .honeymoon span.iban_details {
@@ -922,8 +1393,16 @@ font-size: 1.5rem;
     }
 
     .honeymoon div.navigation {
+        left: 0.6rem;
+        right: 0.6rem;
+        bottom: 0.6rem;
         width: auto;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .honeymoon .honeymoon-bg {
+        opacity: 0.3;
     }
 }
 
@@ -1648,6 +2127,12 @@ RESPONSIVENESS
         width: auto;
     }
 
+    #schedule img.piper {
+        width: 80vw;
+        right: -22%;
+        bottom: -16%;
+    }
+
     section.standard {
         padding: 2.5rem 0 1.25rem;
     }
@@ -1690,10 +2175,18 @@ RESPONSIVENESS
     }
 
     .honeymoon span.iban {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
     .honeymoon span.iban_details {
-        font-size: 1.2rem;
+        font-size: 1.05rem;
+    }
+
+    .honeymoon .columns .column:first-child {
+        margin-bottom: 1.25rem;
+    }
+
+    .honeymoon .column img {
+        width: min(180px, 58vw);
     }
 
 }
@@ -1744,6 +2237,25 @@ RESPONSIVENESS
         position: fixed;
         top: 1rem;
         right: 1rem;
+    }
+
+    .honeymoon.internal .navigation {
+        position: fixed;
+        top: auto;
+        left: 0.6rem;
+        right: 0.6rem;
+        bottom: 0.6rem;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .honeymoon.internal .logo,
+    .honeymoon.internal .rsvp {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
     }
 
     .internal .menu {

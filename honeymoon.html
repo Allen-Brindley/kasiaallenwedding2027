@@ -38,83 +38,62 @@
             location.replace('login.html');
         })();
     </script>
-        <style>
-        .construction-banner {
-            width: 100%;
-            display: block;
-            background: rgba(255, 235, 205, 0.96);
-            color: #2a2a2a;
-            text-align: center;
-            font-size: clamp(2.5rem, 5vw, 6rem);
-            font-weight: 900;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            padding: 1rem 1rem;
-            border-bottom: 4px solid #d18b2e;
-            box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.08);
-            position: relative;
-            z-index: 5;
-        }
-        .construction-banner small {
-            display: block;
-            font-size: 0.45em;
-            font-weight: 500;
-            letter-spacing: normal;
-            text-transform: none;
-            margin-top: 0.4rem;
-            opacity: 0.85;
-        }
-    </style>
     <script src="https://kit.fontawesome.com/3b059272ba.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body class="internal honeymoon">
-    <div class="construction-banner">
-        This webpage is under construction
-        <small>Please check back soon for the final details.</small>
-    </div>
     <section class="hero">
-        <img class="img-over img-bottom.img-right img-right img.bottom slide-in-blurred-br dur-2" src="assets/right_thistle_trimmed.png">
-        <img class="img-over img-top img-left slide-in-blurred-tl-flip dur-350" src="assets/watercolour_leaves.png">
+        <img class="img-under img-bottom honeymoon-bg" src="assets/africa-grass.png" alt="">
         <div>
-            <h1>
-                You can donate using the account details below or via <a class="daje" href="https://revolut.me/kasia_allen_joint_rev" target="_blank">this link</a>.
-            </h1>
+            <audio id="honeymoon-song" autoplay preload="auto">
+                <source src="assets/01%20Circle%20of%20Life_Nants%27%20Ingonyama.mp3" type="audio/mpeg">
+            </audio>
+            <h1>For our honeymoon, we would love to book a safari in <span class="daje"></span>South Africa</span>.</h1>
+            <br></br>
+            <div class="divider"></div>
             <div class="columns">
+            <div class="column">
+                <h3>Please do not bring any gifts or flowers, your presence at our wedding is the greatest gift of all.</h3>
+                <h2>If you want, you can donate to our honeymoon fund using the account details below or via <a class="daje" href="https://revolut.me/kasia_allen_joint_rev" target="_blank">this link</a>.</h2>
+            </div>
 
             <div class="column">
-                <h3 >Honeymoon</h3>
+                <img src="assets/qr-code.png">
+                <h2>Revolut Account</h2>
                 <div class="divider"></div>
-            <p><span class="iban">Sort code: XX-XX-XX</span>
-            <span class="iban">Account Number: XXXXXXXX</span>
-<span class="iban_details">Allen Brindley OR Katarzyna Moszyk</span>
+                <p><span class="iban_details">Name: Allen Brindley</span>
+                <span class="iban_details">Sort code: 04-00-75</span>
+                <span class="iban_details">Account Number: 60034769</span></p>
             </div>
-            <div class="column">
-                <h3 >Other</h3>
-                <div class="divider"></div>
-            <p><span class="iban">Sort code: XX-XX-XX</span>
-            <span class="iban">Account Number: XXXXXXXX</span>
-<span class="iban_details">Allen Brindley OR Katarzyna Moszyk</span>
-            </div>
-            </div>
-        </div>
-        <div class="navigation">
-           <a class="logo" href="home.html" target="_top">
-                <img src="assets/home_icon.png">
-                <div class="test">
-                    <img src="assets/home_icon.png">
-                    <div>
-                        <p>Take me back. <span class="daje">Now.</span></p>
-                    </div>
-                </div>
-            </a>
-            <div class="rsvp">
-                <a href="https://forms.gle/PW3x6ZT194WZ2Gmx9" target="_blank">
-                    <img src="assets/RSVP-2.png">
-                </a>
             </div>
         </div>
     </section>
+    <div class="navigation">
+       <a class="logo" href="home.html" target="_top">
+            <img src="assets/home_icon.png">
+            <div class="test">
+                <img src="assets/home_icon.png">
+                <div>
+                    <p>Take me back. <span class="daje">Now.</span></p>
+                </div>
+            </div>
+        </a>
+        <div class="rsvp">
+            <a href="https://forms.gle/PW3x6ZT194WZ2Gmx9" target="_blank">
+                <img src="assets/RSVP-2.png">
+            </a>
+        </div>
+    </div>
+    <script>
+        (function () {
+            var audio = document.getElementById('honeymoon-song');
+            if (!audio || !audio.play) return;
+            var attempt = audio.play();
+            if (attempt && typeof attempt.catch === 'function') {
+                attempt.catch(function () {});
+            }
+        })();
+    </script>
 </body>
 </html>
