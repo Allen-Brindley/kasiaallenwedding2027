@@ -1014,13 +1014,24 @@ HONEYMOON
 
 .honeymoon div.navigation {
     position: fixed;
+    top: auto;
     left: 0;
     right: 0;
-    bottom: 5%;
+    bottom: 1.5rem;
     margin: 0 auto;
     width: 80vw;
+    flex-direction: row;
     justify-content: space-between;
     z-index: 10;
+}
+
+.honeymoon.internal .logo,
+.honeymoon.internal .rsvp {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
 }
 
 .honeymoon h1 {
@@ -1386,7 +1397,8 @@ HONEYMOON
         right: 0.6rem;
         bottom: 0.6rem;
         width: auto;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .honeymoon .honeymoon-bg {
@@ -2225,6 +2237,25 @@ RESPONSIVENESS
         position: fixed;
         top: 1rem;
         right: 1rem;
+    }
+
+    .honeymoon.internal .navigation {
+        position: fixed;
+        top: auto;
+        left: 0.6rem;
+        right: 0.6rem;
+        bottom: 0.6rem;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .honeymoon.internal .logo,
+    .honeymoon.internal .rsvp {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
     }
 
     .internal .menu {
