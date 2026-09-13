@@ -945,15 +945,40 @@ HONEYMOON
 ***/
 
 
-.honeymoon .hero {
-    padding: 0em 13em;
+.honeymoon.internal section.hero {
+    height: auto;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 5rem 13em 9rem;
 }
+
+.honeymoon .hero > div {
+    position: relative;
+    z-index: 2;
+}
+
+.honeymoon .honeymoon-bg {
+    z-index: 0;
+    left: -450px;
+    right: auto;
+    bottom: auto;
+    top: auto;
+    width: calc(100% + 450px);
+    height: calc(100% + 150px);
+    object-fit: cover;
+    object-position: center bottom;
+    animation: none;
+    opacity: 0.2;
+}
+
 .honeymoon div.navigation {
-    width:80vw;
-justify-content: space-between;
+    width: 80vw;
+    justify-content: space-between;
 }
+
 .honeymoon h1 {
-    margin-bottom: 4rem
+    margin-bottom: 4rem;
 }
 
 .honeymoon span.iban {
@@ -964,7 +989,7 @@ justify-content: space-between;
 
 .honeymoon span.iban_details {
     display: block;
-font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 
@@ -1261,17 +1286,43 @@ font-size: 1.5rem;
         bottom: -10%;
     }
 
-    .honeymoon .construction-banner {
-        font-size: clamp(1.2rem, 3.5vw, 1.8rem);
-        padding: 0.9rem 0.8rem;
+    .honeymoon.internal section.hero {
+        height: auto;
+        min-height: 100svh;
+        box-sizing: border-box;
+        overflow: hidden;
+        padding: 4.5rem 1.25rem 6.5rem;
     }
 
     .honeymoon h1 {
-        margin-bottom: 2rem;
+        margin-bottom: 1.15rem;
+        line-height: 1.25;
+    }
+
+    .honeymoon .columns {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .honeymoon .column {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 1.25rem;
+    }
+
+    .honeymoon .columns .column:first-child {
+        margin-bottom: 1.5rem;
+    }
+
+    .honeymoon .column img {
+        width: min(200px, 62vw);
+        max-width: 100%;
+        height: auto;
     }
 
     .honeymoon span.iban {
         font-size: 1.3rem;
+        word-break: break-word;
     }
 
     .honeymoon span.iban_details {
@@ -1281,6 +1332,10 @@ font-size: 1.5rem;
     .honeymoon div.navigation {
         width: auto;
         justify-content: center;
+    }
+
+    .honeymoon .honeymoon-bg {
+        opacity: 0.3;
     }
 }
 
@@ -2047,10 +2102,18 @@ RESPONSIVENESS
     }
 
     .honeymoon span.iban {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
     .honeymoon span.iban_details {
-        font-size: 1.2rem;
+        font-size: 1.05rem;
+    }
+
+    .honeymoon .columns .column:first-child {
+        margin-bottom: 1.25rem;
+    }
+
+    .honeymoon .column img {
+        width: min(180px, 58vw);
     }
 
 }
