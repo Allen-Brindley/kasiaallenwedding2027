@@ -629,6 +629,114 @@ p.description {
 }
 
 /***
+SCHEDULE TIMELINE
+***/
+
+.timeline-deco {
+    width: min(140px, 28vw);
+    height: auto;
+    margin-bottom: 1.25rem;
+    pointer-events: none;
+}
+
+#schedule,
+#day2 {
+    padding-bottom: 5.5rem;
+    justify-content: flex-start;
+}
+
+.timeline {
+    --time-col: 9rem;
+    --rail-col: 1.75rem;
+    --rail-gap: 1rem;
+    --line-x: calc(var(--time-col) + var(--rail-gap) + (var(--rail-col) / 2));
+    list-style: none;
+    width: min(720px, 100%);
+    margin: 3rem 0 0;
+    padding: 0.35rem 0 1.25rem;
+    position: relative;
+    text-align: left;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0.7rem;
+    bottom: 0.35rem;
+    left: var(--line-x);
+    width: 1.5px;
+    background: var(--green);
+    transform: translateX(-50%);
+}
+
+.timeline::after {
+    content: "";
+    position: absolute;
+    left: var(--line-x);
+    bottom: 0;
+    width: 8px;
+    height: 8px;
+    border-right: 1.5px solid var(--green);
+    border-bottom: 1.5px solid var(--green);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: var(--time-col) var(--rail-col) minmax(0, 1fr);
+    column-gap: var(--rail-gap);
+    align-items: start;
+    padding-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.2;
+    text-align: right;
+    color: var(--green);
+    padding-top: 0.15rem;
+    white-space: nowrap;
+}
+
+.timeline-dot {
+    width: 14px;
+    height: 14px;
+    margin-top: 0.45rem;
+    justify-self: center;
+    border-radius: 50%;
+    background: var(--beige);
+    border: 2.5px solid var(--green);
+    box-shadow: 0 0 0 4px var(--beige);
+    z-index: 1;
+}
+
+.timeline-event {
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    width: 100%;
+}
+
+.timeline-event h3 {
+    font-size: 1.85rem;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.timeline-event .description,
+.timeline-event .smalldetail {
+    margin: 0.45rem 0 0;
+    max-width: 28rem;
+}
+
+/***
 HONEYMOON
 ***/
 
@@ -745,6 +853,42 @@ font-size: 1.5rem;
         width: 100%;
         padding: 0;
         margin-bottom: 2rem;
+    }
+
+    .timeline {
+        --time-col: 0;
+        --rail-col: 1.5rem;
+        --rail-gap: 0.85rem;
+        --line-x: calc(var(--rail-col) / 2);
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .timeline-item {
+        grid-template-columns: var(--rail-col) minmax(0, 1fr);
+        padding-bottom: 1.75rem;
+    }
+
+    .timeline-time {
+        grid-column: 2;
+        text-align: left;
+        font-size: 1.15rem;
+        padding-top: 0;
+        margin-bottom: 0.2rem;
+    }
+
+    .timeline-dot {
+        grid-column: 1;
+        grid-row: 1 / span 3;
+        margin-top: 0.3rem;
+    }
+
+    .timeline-event {
+        grid-column: 2;
+    }
+
+    .timeline-event h3 {
+        font-size: 1.55rem;
     }
 
     div.navigation {
