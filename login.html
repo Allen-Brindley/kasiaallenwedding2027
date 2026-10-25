@@ -33,6 +33,16 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css" media="all">
     <style>
+        .internal .hero .img-top.img-left {
+            width: min(30vw, 516px);
+        }
+        /* Narrow or short screens (phones, high browser zoom) pull the form
+           towards the top-left, so cap the image by height too. */
+        @media (max-width: 750px), (max-height: 500px) {
+            .internal .hero .img-top.img-left {
+                width: min(35vw, 25vh);
+            }
+        }
         .internal .hero .img-bottom.img-right {
             width: 30vw;
             right: calc(-10% + 50px);
