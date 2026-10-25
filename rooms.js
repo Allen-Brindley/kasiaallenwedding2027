@@ -6,25 +6,24 @@
 // "alt" describes the photo for people who can't see it.
 var ROOM_PHOTOS = {
     '2-bed': [
-        { src: 'assets/rooms/2-bed/PXL_20261024_155659653.jpg', alt: 'The 2-bed room, photo 1' },
-        { src: 'assets/rooms/2-bed/PXL_20261024_155701792.jpg', alt: 'The 2-bed room, photo 2' },
-        { src: 'assets/rooms/2-bed/PXL_20261024_155713093.jpg', alt: 'The 2-bed room, photo 3' },
-        { src: 'assets/rooms/2-bed/PXL_20261024_155714581.jpg', alt: 'The 2-bed room, photo 4' },
-        { src: 'assets/rooms/2-bed/PXL_20261024_155722462.jpg', alt: 'The 2-bed room, photo 5' },
-        { src: 'assets/rooms/2-bed/PXL_20261024_155736052.jpg', alt: 'The 2-bed room, photo 6' }
+        { src: 'assets/rooms/2-bed/PXL_20261024_155714581.jpg', alt: 'The 2-bed room, photo 1' },
+        { src: 'assets/rooms/2-bed/PXL_20261024_155722462.jpg', alt: 'The 2-bed room, photo 2' },
+        { src: 'assets/rooms/2-bed/PXL_20261024_155659653.jpg', alt: 'The 2-bed room, photo 3' },
+        { src: 'assets/rooms/2-bed/PXL_20261024_155701792.jpg', alt: 'The 2-bed room, photo 4' },
+        { src: 'assets/rooms/2-bed/PXL_20261024_155736052.jpg', alt: 'The 2-bed room, photo 5' }
     ],
     '3-bed': [
-        { src: 'assets/rooms/3-bed/PXL_20261024_155850138.jpg', alt: 'The 3-bed room, photo 1' },
-        { src: 'assets/rooms/3-bed/PXL_20261024_155931858.jpg', alt: 'The 3-bed room, photo 2' },
-        { src: 'assets/rooms/3-bed/PXL_20261024_160055695.jpg', alt: 'The 3-bed room, photo 3' }
+        { src: 'assets/rooms/3-bed/PXL_20261024_160055695.jpg', alt: 'The 3-bed room, photo 1' },
+        { src: 'assets/rooms/3-bed/PXL_20261024_155850138.jpg', alt: 'The 3-bed room, photo 2' },
+        { src: 'assets/rooms/3-bed/PXL_20261024_155931858.jpg', alt: 'The 3-bed room, photo 3' },
     ],
     '3-plus-bed': [
-        { src: 'assets/rooms/3-plus-bed/PXL_20261024_155736052.jpg', alt: 'The 3+ bed room, photo 1' },
-        { src: 'assets/rooms/3-plus-bed/PXL_20261024_155906389.jpg', alt: 'The 3+ bed room, photo 2' },
         { src: 'assets/rooms/3-plus-bed/PXL_20261024_155926079.jpg', alt: 'The 3+ bed room, photo 3' },
+        { src: 'assets/rooms/3-plus-bed/PXL_20261024_160119760.jpg', alt: 'The 3+ bed room, photo 6' },
+        { src: 'assets/rooms/3-plus-bed/PXL_20261024_155906389.jpg', alt: 'The 3+ bed room, photo 2' },
         { src: 'assets/rooms/3-plus-bed/PXL_20261024_160102421.jpg', alt: 'The 3+ bed room, photo 4' },
         { src: 'assets/rooms/3-plus-bed/PXL_20261024_160108576.jpg', alt: 'The 3+ bed room, photo 5' },
-        { src: 'assets/rooms/3-plus-bed/PXL_20261024_160119760.jpg', alt: 'The 3+ bed room, photo 6' }
+        { src: 'assets/rooms/3-plus-bed/PXL_20261024_155736052.jpg', alt: 'The 3+ bed room, photo 1' }
     ]
 };
 
