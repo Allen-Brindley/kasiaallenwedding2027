@@ -1,7 +1,6 @@
 // Flip cards for the travel options and hotels on location.html.
 (function () {
-    // The room cards flip between rooms instead and are handled in rooms.js.
-    document.querySelectorAll('.flip-card:not(.room-card)').forEach(function (card) {
+    document.querySelectorAll('.flip-card').forEach(function (card) {
         var front = card.querySelector('.flip-card-front');
         var back = card.querySelector('.flip-card-back');
         var flipBack = card.querySelector('.flip-card-flip-back');

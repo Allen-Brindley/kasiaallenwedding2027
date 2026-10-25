@@ -836,8 +836,8 @@ p.description {
 }
 
 /* Rooms at the venue: a white box in the beige accommodation section, with
-   text on the left and two room cards on the right. Each card flips between
-   rooms and steps through that room's photos. */
+   text beside or above a card for each room. Each card steps through that
+   room's photos. */
 .rooms-box {
     flex-direction: row;
     align-items: center;
@@ -873,7 +873,7 @@ p.description {
 }
 
 .rooms-cards {
-    flex: 2 1 0;
+    flex: 3 1 0;
     min-width: 0;
     flex-direction: row;
     align-items: stretch;
@@ -881,20 +881,17 @@ p.description {
     width: 100%;
 }
 
-.room-card .flip-card-face {
+.room-card {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    padding: 0;
-    background-color: var(--beige);
-    cursor: auto;
-}
-
-.room {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+    flex: 1 1 0;
     min-width: 0;
+    max-width: 26rem;
+    aspect-ratio: 4 / 5;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: var(--beige);
+    box-shadow: var(--shadow-1-elevation-medium);
 }
 
 .room-gallery {
@@ -987,21 +984,16 @@ p.description {
 }
 
 .room-arrow:focus-visible,
-.room-dot:focus-visible,
-.room-flip:focus-visible {
+.room-dot:focus-visible {
     outline: 2px solid var(--red);
     outline-offset: 2px;
 }
 
-.room .room-name {
+.room-card .room-name {
     margin: 0;
     line-height: 1.15;
-    padding: 1rem 1rem 0;
-    font-size: 1.75rem;
-}
-
-.room-flip {
-    margin: 0.25rem auto 0.9rem;
+    padding: 0.9rem 0.75rem 1rem;
+    font-size: 1.6rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1010,38 +1002,41 @@ p.description {
     }
 }
 
-/* Tablets: give the cards as much of the width as possible */
-@media (max-width: 900px) {
-    .rooms-box {
-        gap: 1.5rem;
-        padding: 1.75rem;
-    }
-
-    .rooms-cards {
-        flex-grow: 2.5;
-        gap: 1rem;
-    }
-
-    .room .room-name {
-        font-size: 1.5rem;
-    }
-}
-
-/* Text above the cards */
-@media (max-width: 700px) {
+/* Text above the cards, which share the full width */
+@media (max-width: 1100px) {
     .rooms-box {
         flex-direction: column;
         gap: 2rem;
-        padding: 1.75rem 1.25rem;
+        padding: 1.75rem;
     }
 
     .rooms-text {
         flex: none;
+        max-width: 40rem;
+    }
+
+    .rooms-cards {
+        flex: none;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .room-card .room-name {
+        font-size: 1.4rem;
     }
 }
 
 /* Cards one above the other on phones */
-@media (max-width: 540px) {
+@media (max-width: 600px) {
+    .rooms-box {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .room-card {
+        flex: none;
+        width: 100%;
+    }
+
     .rooms-cards {
         flex-direction: column;
         align-items: center;

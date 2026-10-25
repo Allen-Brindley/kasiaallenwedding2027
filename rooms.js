@@ -1,7 +1,8 @@
-// Photos of the rooms at the venue, for the two room cards on location.html.
+// Photos of the rooms at the venue, for the room cards on location.html.
 //
 // To add a photo: put the file in that room's folder under assets/rooms/ and
-// add a line for it to the room's list below. Photos show in list order.
+// add a line for it to the room's list below. Photos show in list order, so
+// move a line up or down to change the order; the first one shows first.
 // "alt" describes the photo for people who can't see it.
 var ROOM_PHOTOS = {
     '2-bed': [
@@ -99,42 +100,6 @@ var ROOM_PHOTOS = {
             if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
                 show(current + (dx < 0 ? 1 : -1));
             }
-        });
-    });
-
-    // Two cards, three rooms. Flipping a card turns it over to the room that
-    // isn't showing on either card, so the two cards never show the same room.
-    var cards = Array.prototype.slice.call(document.querySelectorAll('.room-card'));
-    var rooms = Array.prototype.slice.call(document.querySelectorAll('.room'));
-
-    function visibleFace(card) {
-        return card.querySelector(card.classList.contains('is-flipped') ? '.flip-card-back' : '.flip-card-front');
-    }
-
-    cards.forEach(function (card) {
-        var front = card.querySelector('.flip-card-front');
-        var back = card.querySelector('.flip-card-back');
-
-        card.addEventListener('click', function (event) {
-            if (!event.target.closest('.room-flip')) return;
-
-            var showing = cards.map(function (c) {
-                return visibleFace(c).querySelector('.room');
-            });
-            var spare = rooms.filter(function (room) {
-                return showing.indexOf(room) === -1;
-            })[0];
-            if (!spare) return;
-
-            var flipped = !card.classList.contains('is-flipped');
-            var hidden = flipped ? back : front;
-            hidden.appendChild(spare);
-
-            card.classList.toggle('is-flipped', flipped);
-            // Only the visible face can be reached by keyboard and screen readers.
-            front.inert = flipped;
-            back.inert = !flipped;
-            spare.querySelector('.room-flip').focus({ preventScroll: true });
         });
     });
 })();
