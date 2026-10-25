@@ -723,70 +723,116 @@ SCHEDULE TIMELINE
 }
 
 .timeline {
-    --time-col: 9rem;
-    --rail-col: 1.75rem;
-    --rail-gap: 1rem;
-    --line-x: calc(var(--time-col) + var(--rail-gap) + (var(--rail-col) / 2));
+    --item-w: clamp(12.5rem, 19vw, 16rem);
+    --time-size: 1.35rem;
+    /* Centre of the dot row: one line of time, the row gap, then half the dot row. */
+    --dot-y: calc(var(--time-size) * 1.2 + 0.6rem + 0.875rem);
     list-style: none;
-    width: min(720px, 100%);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
     margin: 3rem 0 0;
-    padding: 0.35rem 0 1.25rem;
+    padding: 0.35rem 0 1.5rem;
+    box-sizing: border-box;
     position: relative;
-    text-align: left;
+    text-align: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--light-green) transparent;
 }
 
-.timeline::before {
+.timeline:focus-visible {
+    outline: 1.5px dashed var(--light-green);
+    outline-offset: 4px;
+}
+
+.timeline::-webkit-scrollbar {
+    height: 6px;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+    background: var(--light-green);
+    border-radius: 3px;
+}
+
+.timeline::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.timeline-item {
+    flex: 0 0 var(--item-w);
+    display: grid;
+    grid-template-rows: auto 1.75rem auto;
+    justify-items: center;
+    row-gap: 0.6rem;
+    position: relative;
+    padding: 0 0.75rem;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+}
+
+/* Centre the row when it is narrower than the screen, while still scrolling from the first item when it overflows. */
+.timeline-item:first-child {
+    margin-left: auto;
+}
+
+.timeline-item:last-child {
+    margin-right: auto;
+}
+
+/* Rail segment behind each dot, so the line runs the full scroll width. */
+.timeline-item::before {
     content: "";
     position: absolute;
-    top: 0.7rem;
-    bottom: 0.35rem;
-    left: var(--line-x);
-    width: 1.5px;
+    top: var(--dot-y);
+    left: 0;
+    right: 0;
+    height: 1.5px;
     background: var(--green);
-    transform: translateX(-50%);
+    transform: translateY(-50%);
 }
 
-.timeline::after {
+.timeline-item:first-child::before {
+    left: 50%;
+}
+
+.timeline-item:last-child::before {
+    right: 0.75rem;
+}
+
+.timeline-item:last-child::after {
     content: "";
     position: absolute;
-    left: var(--line-x);
-    bottom: 0;
+    top: var(--dot-y);
+    right: 0.75rem;
     width: 8px;
     height: 8px;
     border-right: 1.5px solid var(--green);
     border-bottom: 1.5px solid var(--green);
-    transform: translateX(-50%) rotate(45deg);
-}
-
-.timeline-item {
-    display: grid;
-    grid-template-columns: var(--time-col) var(--rail-col) minmax(0, 1fr);
-    column-gap: var(--rail-gap);
-    align-items: start;
-    padding-bottom: 2.5rem;
-}
-
-.timeline-item:last-child {
-    padding-bottom: 0;
+    transform: translateY(-50%) rotate(-45deg);
 }
 
 .timeline-time {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
+    font-size: var(--time-size);
     font-weight: 600;
     font-style: italic;
     line-height: 1.2;
-    text-align: right;
     color: var(--green);
-    padding-top: 0.15rem;
     white-space: nowrap;
 }
 
 .timeline-dot {
     width: 14px;
     height: 14px;
-    margin-top: 0.45rem;
-    justify-self: center;
+    align-self: center;
+    box-sizing: border-box;
     border-radius: 50%;
     background: var(--beige);
     border: 2.5px solid var(--green);
@@ -795,9 +841,9 @@ SCHEDULE TIMELINE
 }
 
 .timeline-event {
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
-    text-align: left;
+    text-align: center;
     width: 100%;
 }
 
@@ -838,6 +884,30 @@ html.schedule-page {
 
 .day-story-beats {
     width: 100%;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: center;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--light-green) transparent;
+}
+
+.day-story-beats::-webkit-scrollbar {
+    height: 6px;
+}
+
+.day-story-beats::-webkit-scrollbar-thumb {
+    background: var(--light-green);
+    border-radius: 3px;
+}
+
+.day-story-beats::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 .story-beat {
@@ -847,8 +917,9 @@ html.schedule-page {
     justify-content: center;
     text-align: center;
     position: relative;
+    flex: 0 0 100%;
     width: 100%;
-    min-height: 50svh;
+    min-height: 60svh;
     padding: 1.5rem 1.5rem;
     box-sizing: border-box;
     scroll-snap-align: center;
@@ -919,6 +990,20 @@ html.schedule-page {
     }
 }
 
+.story-beat-hint.is-next {
+    animation-name: story-hint-nudge;
+}
+
+@keyframes story-hint-nudge {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(8px);
+    }
+}
+
 .day-story-recap {
     width: 100%;
     min-height: 100svh;
@@ -970,20 +1055,9 @@ html.day-story-ready .day-story-recap.is-inview .day-story-recap-inner {
     transform: scale(1);
 }
 
-html.day-story-ready .day-story-recap .timeline::before,
-html.day-story-ready .day-story-recap .timeline::after {
-    opacity: 0;
-    transition: opacity 0.8s ease 0.15s;
-}
-
-html.day-story-ready .day-story-recap.is-revealed .timeline::before,
-html.day-story-ready .day-story-recap.is-revealed .timeline::after {
-    opacity: 1;
-}
-
 html.day-story-ready .day-story-recap .timeline-item {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateX(16px);
     transition: opacity 0.55s ease, transform 0.55s ease;
     transition-delay: calc(0.2s + (var(--i, 0) * 0.08s));
 }
@@ -1003,9 +1077,7 @@ html.day-story-ready .day-story-recap.is-revealed .timeline-item {
     }
 
     html.day-story-ready .day-story-recap-inner,
-    html.day-story-ready .day-story-recap .timeline-item,
-    html.day-story-ready .day-story-recap .timeline::before,
-    html.day-story-ready .day-story-recap .timeline::after {
+    html.day-story-ready .day-story-recap .timeline-item {
         opacity: 1;
         transform: none;
         filter: none;
@@ -1183,35 +1255,9 @@ HONEYMOON
     }
 
     .timeline {
-        --time-col: 0;
-        --rail-col: 1.5rem;
-        --rail-gap: 0.85rem;
-        --line-x: calc(var(--rail-col) / 2);
-        width: 100%;
+        --item-w: min(15rem, 68vw);
+        --time-size: 1.15rem;
         margin-top: 2rem;
-    }
-
-    .timeline-item {
-        grid-template-columns: var(--rail-col) minmax(0, 1fr);
-        padding-bottom: 1.75rem;
-    }
-
-    .timeline-time {
-        grid-column: 2;
-        text-align: left;
-        font-size: 1.15rem;
-        padding-top: 0;
-        margin-bottom: 0.2rem;
-    }
-
-    .timeline-dot {
-        grid-column: 1;
-        grid-row: 1 / span 3;
-        margin-top: 0.3rem;
-    }
-
-    .timeline-event {
-        grid-column: 2;
     }
 
     .timeline-event h3 {
