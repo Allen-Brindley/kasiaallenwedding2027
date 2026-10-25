@@ -806,6 +806,11 @@ p.description {
     margin: 0;
 }
 
+/* Travel cards have no heading between the label and the text */
+.flip-card-back .divider + p.description {
+    margin-top: 1.25rem;
+}
+
 .flip-card-flip-back {
     margin: 1.5rem 0 0;
     padding: 0.25rem 0.5rem;
