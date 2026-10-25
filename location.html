@@ -185,6 +185,68 @@ If you want to join us earlier we will organise an <em>aperitivo</em> on Tuesday
 Alternative options nearby the wedding location</p>
 <p class="subtext">There is plenty of accomodation at the venue, which we will help book for you.</p>
 <p class="subtext">Please filll in the RSVP form<a href="https://forms.gle/PW3x6ZT194WZ2Gmx9" target="_blank">here</a></p>
+        <!-- Rooms at the venue. Photos for each room are listed in rooms.js. -->
+        <div class="rooms-box">
+            <div class="rooms-text">
+                <!-- Placeholder copy: replace with the real details of the rooms -->
+                <p class="smalldetail" data-i18n="location.roomsLabel">At the venue</p>
+                <h3 data-i18n="location.roomsTitle">Our rooms</h3>
+                <p class="description" data-i18n="location.roomsText">The venue has rooms with two, three or more beds, so you can share with family or friends. Have a look at the photos, then tell us on the RSVP form which room suits you and we'll book it for you.</p>
+            </div>
+            <div class="rooms-cards">
+                <div class="flip-card room-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <article class="room" data-room="2-bed" aria-labelledby="room-2-bed-name">
+                                <div class="room-gallery">
+                                    <div class="room-photos"></div>
+                                    <button type="button" class="room-arrow room-prev" aria-label="Previous photo of the 2-bed room"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                                    <button type="button" class="room-arrow room-next" aria-label="Next photo of the 2-bed room"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                                    <div class="room-dots"></div>
+                                </div>
+                                <h3 class="flip-card-name room-name" id="room-2-bed-name" data-i18n="location.room2Bed">2-bed room</h3>
+                                <button type="button" class="flip-card-flip-back room-flip">
+                                    <i class="fa fa-rotate" aria-hidden="true"></i> <span data-i18n="location.roomsFlip">Show another room</span>
+                                </button>
+                            </article>
+                        </div>
+                        <div class="flip-card-face flip-card-back" inert>
+                            <article class="room" data-room="3-plus-bed" aria-labelledby="room-3-plus-bed-name">
+                                <div class="room-gallery">
+                                    <div class="room-photos"></div>
+                                    <button type="button" class="room-arrow room-prev" aria-label="Previous photo of the 3+ bed room"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                                    <button type="button" class="room-arrow room-next" aria-label="Next photo of the 3+ bed room"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                                    <div class="room-dots"></div>
+                                </div>
+                                <h3 class="flip-card-name room-name" id="room-3-plus-bed-name" data-i18n="location.room3PlusBed">3+ bed room</h3>
+                                <button type="button" class="flip-card-flip-back room-flip">
+                                    <i class="fa fa-rotate" aria-hidden="true"></i> <span data-i18n="location.roomsFlip">Show another room</span>
+                                </button>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card room-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-face flip-card-front">
+                            <article class="room" data-room="3-bed" aria-labelledby="room-3-bed-name">
+                                <div class="room-gallery">
+                                    <div class="room-photos"></div>
+                                    <button type="button" class="room-arrow room-prev" aria-label="Previous photo of the 3-bed room"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                                    <button type="button" class="room-arrow room-next" aria-label="Next photo of the 3-bed room"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                                    <div class="room-dots"></div>
+                                </div>
+                                <h3 class="flip-card-name room-name" id="room-3-bed-name" data-i18n="location.room3Bed">3-bed room</h3>
+                                <button type="button" class="flip-card-flip-back room-flip">
+                                    <i class="fa fa-rotate" aria-hidden="true"></i> <span data-i18n="location.roomsFlip">Show another room</span>
+                                </button>
+                            </article>
+                        </div>
+                        <div class="flip-card-face flip-card-back" inert></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 <p class="subtext">If you prefer to stay in a hotel, there are some options nearby</p>
         <div class="columns flip-card-columns">
 
@@ -238,6 +300,7 @@ Gościniec Krys is also a 16 minute drive from the venue and is located in Żnin
             </div>
         </div>
         <script src="flip-cards.js" defer></script>
+        <script src="rooms.js" defer></script>
         <a href="#drink" class="bounce arrow-bounce focus-in dur-4">
             <i class="fa fa-2x fa-chevron-down"></i>
         </a>

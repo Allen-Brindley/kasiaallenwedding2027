@@ -835,6 +835,219 @@ p.description {
     }
 }
 
+/* Rooms at the venue: a white box in the beige accommodation section, with
+   text on the left and two room cards on the right. Each card flips between
+   rooms and steps through that room's photos. */
+.rooms-box {
+    flex-direction: row;
+    align-items: center;
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 72rem;
+    box-sizing: border-box;
+    margin: 3rem 0;
+    padding: 2.5rem;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.rooms-text {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.rooms-text h3 {
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin: 0.5rem 0 1rem;
+}
+
+.rooms-text p {
+    margin: 0;
+    overflow-wrap: break-word;
+}
+
+.rooms-text p.description {
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.rooms-cards {
+    flex: 2 1 0;
+    min-width: 0;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.room-card .flip-card-face {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    background-color: var(--beige);
+    cursor: auto;
+}
+
+.room {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.room-gallery {
+    flex: 1;
+    min-height: 10rem;
+    overflow: hidden;
+    /* Swiping sideways changes the photo; scrolling the page still works */
+    touch-action: pan-y;
+}
+
+.room-photos {
+    position: absolute;
+    inset: 0;
+}
+
+.room-photos img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.room-photos img.is-current {
+    opacity: 1;
+}
+
+.room-arrow {
+    position: absolute;
+    top: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: -1.25rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: rgb(255 255 255 / 0.85);
+    color: var(--green);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.5s ease-in-out;
+}
+
+.room-prev {
+    left: 0.6rem;
+}
+
+.room-next {
+    right: 0.6rem;
+}
+
+.room-arrow:hover {
+    color: var(--red);
+}
+
+.room-dots {
+    position: absolute;
+    bottom: 0.6rem;
+    left: 0;
+    right: 0;
+    flex-direction: row;
+    gap: 0.1rem;
+}
+
+.room-dot {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+/* The visible dot is small; the button around it is big enough to tap */
+.room-dot::before {
+    content: '';
+    display: block;
+    width: 0.6rem;
+    height: 0.6rem;
+    margin: auto;
+    border-radius: 50%;
+    border: 1.5px solid white;
+    box-shadow: 0 0 3px rgb(0 0 0 / 0.4);
+}
+
+.room-dot[aria-current="true"]::before {
+    background-color: white;
+}
+
+.room-arrow:focus-visible,
+.room-dot:focus-visible,
+.room-flip:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+}
+
+.room .room-name {
+    margin: 0;
+    line-height: 1.15;
+    padding: 1rem 1rem 0;
+    font-size: 1.75rem;
+}
+
+.room-flip {
+    margin: 0.25rem auto 0.9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .room-photos img {
+        transition: none;
+    }
+}
+
+/* Tablets: give the cards as much of the width as possible */
+@media (max-width: 900px) {
+    .rooms-box {
+        gap: 1.5rem;
+        padding: 1.75rem;
+    }
+
+    .rooms-cards {
+        flex-grow: 2.5;
+        gap: 1rem;
+    }
+
+    .room .room-name {
+        font-size: 1.5rem;
+    }
+}
+
+/* Text above the cards */
+@media (max-width: 700px) {
+    .rooms-box {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1.75rem 1.25rem;
+    }
+
+    .rooms-text {
+        flex: none;
+    }
+}
+
+/* Cards one above the other on phones */
+@media (max-width: 540px) {
+    .rooms-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 #location {
     width: 100%;
     box-sizing: border-box;

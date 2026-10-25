@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#B1BF93"/>
+  <g fill="none" stroke="#5B7343" stroke-width="6" stroke-linejoin="round">
+    <rect x="270" y="250" width="260" height="90" rx="10"/>
+    <rect x="290" y="215" width="80" height="35" rx="10"/>
+    <rect x="430" y="215" width="80" height="35" rx="10"/>
+    <path d="M270 340v40M530 340v40"/>
+  </g>
+  <text x="400" y="450" text-anchor="middle" font-family="Georgia, serif" font-size="44" fill="#5B7343">3+ bed room</text>
+  <text x="400" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#5B7343">Placeholder photo 1</text>
+</svg>
