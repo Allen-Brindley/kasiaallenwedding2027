@@ -1,9 +1,9 @@
-// Flip cards for the hotels in the accommodations section of location.html.
+// Flip cards for the travel options and hotels on location.html.
 (function () {
-    document.querySelectorAll('.hotel-card').forEach(function (card) {
-        var front = card.querySelector('.hotel-card-front');
-        var back = card.querySelector('.hotel-card-back');
-        var flipBack = card.querySelector('.hotel-card-flip-back');
+    document.querySelectorAll('.flip-card').forEach(function (card) {
+        var front = card.querySelector('.flip-card-front');
+        var back = card.querySelector('.flip-card-back');
+        var flipBack = card.querySelector('.flip-card-flip-back');
 
         function setFlipped(flipped) {
             card.classList.toggle('is-flipped', flipped);

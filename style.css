@@ -642,25 +642,33 @@ p.description {
     margin-top: 2rem;
 }
 
-/* Hotel flip cards: photo and name on the front, details on the back */
-#accomodations .columns {
+/* Flip cards (travel options, hotels): photo or icon and name on the front,
+   details on the back */
+.columns.flip-card-columns {
     align-items: stretch;
-    margin-top: 3rem;
+    gap: 1.5rem;
+    /* Bottom margin keeps the section's scroll-down arrow clear of the cards */
+    margin: 3rem 0 4rem;
 }
 
-#accomodations .column {
+/* The gap spaces stacked cards evenly on phones */
+.columns.flip-card-columns > .column:first-child {
+    margin-bottom: 0;
+}
+
+.flip-card-columns > .column {
     justify-content: flex-start;
     box-sizing: border-box;
 }
 
-.hotel-card {
+.flip-card {
     flex: 1;
     width: 100%;
     max-width: 26rem;
     perspective: 1600px;
 }
 
-.hotel-card-inner {
+.flip-card-inner {
     display: grid;
     /* Undo the global div centring so both faces fill the card */
     place-items: stretch;
@@ -673,11 +681,16 @@ p.description {
     transition: transform 0.8s cubic-bezier(0.45, 0.05, 0.25, 1);
 }
 
-.hotel-card.is-flipped .hotel-card-inner {
+/* Icon cards have less to show on the front than photo cards */
+.flip-card-square .flip-card-inner {
+    aspect-ratio: 1 / 1;
+}
+
+.flip-card.is-flipped .flip-card-inner {
     transform: rotateY(180deg);
 }
 
-.hotel-card-face {
+.flip-card-face {
     grid-area: 1 / 1;
     min-width: 0;
     box-sizing: border-box;
@@ -689,13 +702,13 @@ p.description {
     backface-visibility: hidden;
 }
 
-.hotel-card-face:focus-visible,
-.hotel-card-flip-back:focus-visible {
+.flip-card-face:focus-visible,
+.flip-card-flip-back:focus-visible {
     outline: 2px solid var(--red);
     outline-offset: 4px;
 }
 
-.hotel-card-front {
+.flip-card-front {
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -707,7 +720,7 @@ p.description {
     cursor: pointer;
 }
 
-.hotel-card-photo {
+.flip-card-photo {
     display: block;
     position: relative;
     flex: 1;
@@ -715,7 +728,7 @@ p.description {
     overflow: hidden;
 }
 
-.hotel-card-photo img {
+.flip-card-photo img {
     position: absolute;
     top: 0;
     left: 0;
@@ -727,16 +740,37 @@ p.description {
 
 /* The Gościniec Krys photo has a white band across its bottom 15%: make the
    image taller than its frame and pin it to the top so the band is cut off */
-.hotel-card-photo-trim img {
+.flip-card-photo-trim img {
     height: calc(100% / 0.84);
     object-position: center top;
 }
 
-.hotel-card-front:hover .hotel-card-photo img {
+.flip-card-front:hover .flip-card-photo img {
     transform: scale(1.04);
 }
 
-.hotel-card-name {
+/* Icon instead of a photo, for the travel option cards */
+.flip-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-height: 9rem;
+    background-color: var(--beige);
+    color: var(--green);
+    font-size: 4.5rem;
+}
+
+.flip-card-icon i {
+    transition: transform 1s ease-in-out, color 1s ease-in-out;
+}
+
+.flip-card-front:hover .flip-card-icon i {
+    transform: scale(1.08);
+    color: var(--red);
+}
+
+.flip-card-name {
     padding: 1.25rem 1rem 0.25rem;
     font-family: 'Cormorant Garamond', serif;
     font-size: 2rem;
@@ -744,7 +778,7 @@ p.description {
     overflow-wrap: break-word;
 }
 
-.hotel-card-hint {
+.flip-card-hint {
     padding: 0 1rem 1.25rem;
     font-family: 'Work Sans', sans-serif;
     font-size: 0.9rem;
@@ -752,27 +786,27 @@ p.description {
     color: var(--green);
 }
 
-.hotel-card-back {
+.flip-card-back {
     transform: rotateY(180deg);
     padding: 1.5rem 1.75rem;
     cursor: pointer;
 }
 
-.hotel-card-back > * {
+.flip-card-back > * {
     max-width: 100%;
     overflow-wrap: break-word;
 }
 
-.hotel-card-back h3 {
+.flip-card-back h3 {
     line-height: 1.1;
     margin: 1rem 0 0.5rem;
 }
 
-.hotel-card-back p.description {
+.flip-card-back p.description {
     margin: 0;
 }
 
-.hotel-card-flip-back {
+.flip-card-flip-back {
     margin: 1.5rem 0 0;
     padding: 0.25rem 0.5rem;
     border: 0;
@@ -785,13 +819,13 @@ p.description {
     transition: color 0.5s ease-in-out;
 }
 
-.hotel-card-flip-back:hover {
+.flip-card-flip-back:hover {
     color: var(--red);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hotel-card-inner,
-    .hotel-card-photo img {
+    .flip-card-inner,
+    .flip-card-photo img {
         transition: none;
     }
 }
