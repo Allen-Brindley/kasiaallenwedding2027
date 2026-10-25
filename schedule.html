@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Kasia & Allen | The Schedule </title>
+    <title data-i18n="schedule.title">Kasia & Allen | The Schedule </title>
     <link rel="shortcut icon" type="image/png" href="assets/favicon.ico">
     <!-- <link rel="apple-touch-icon" href="assets/favicon.ico">
     <link rel="icon" sizes="192x192" href="assets/favicon.ico"> -->
@@ -32,6 +32,8 @@
         href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css" media="all">
+    <script src="i18n.js"></script>
+    <script src="lang.js"></script>
     <script>
         (function () {
             if (localStorage.getItem('weddingAccess') === 'true') return;
@@ -49,7 +51,7 @@
         <div>
 
 
-            <h1>
+            <h1 data-i18n="schedule.heading">
                 The Ceremony starts at <span class="daje">15:00</span>, please be seated at the pier before <span class="daje">then</span>
             </h1>
         </div>
@@ -59,15 +61,15 @@
                 <div class="test">
                     <img src="assets/home_icon.png">
                     <div>
-                        <p>Take me back. <span class="daje">Now.</span></p>
+                        <p data-i18n="nav.back">Take me back. <span class="daje">Now.</span></p>
                     </div>
                 </div>
             </a>
             <div class="menu">
-                <a href="location.html" target="_top">How to get there</a>
-                <a href="#timetable">Timetable</a>
-                <a href="#accomodations">Sleep</a>
-                <a href="#menu">Eat & Drink</a>
+                <a href="location.html" target="_top" data-i18n="nav.howToGetThere">How to get there</a>
+                <a href="#timetable" data-i18n="nav.timetable">Timetable</a>
+                <a href="#accomodations" data-i18n="nav.sleep">Sleep</a>
+                <a href="#menu" data-i18n="nav.eatDrink">Eat & Drink</a>
             </div>
             <div class="rsvp">
                 <a href="https://forms.gle/PW3x6ZT194WZ2Gmx9" target="_blank">
@@ -83,10 +85,10 @@
 
     <section id="reception" class="standard">
         <div>
-        <p class="bigtext">
+        <p class="bigtext" data-i18n="schedule.reception">
             The reception will be held at the venue in <a href="https://www.google.pl/maps/place/O%C5%9Brodek+Wypoczynkowy+Wiktorowo/@52.8221244,17.859478,17z/data=!3m1!4b1!4m9!3m8!1s0x470361e4d3c17a89:0x135059415e719ac1!5m2!4m1!1i2!8m2!3d52.8221244!4d17.859478!16s%2Fg%2F1tg_vssp?entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D" class="daje">Wiktorowo</a>. <br/></p>
 <div class="divider bottom"></div>
-<p class="subtext">
+<p class="subtext" data-i18n="schedule.party">
     And we aim to start the party at <span class="daje">17:00</span>.
 </p>
                 
@@ -98,156 +100,156 @@
 
 
     <section id="schedule" class="standard alt day-story">
-        <div class="day-story-beats" tabindex="0" aria-label="Events, scroll sideways">
+        <div class="day-story-beats" tabindex="0" aria-label="Events, scroll sideways" data-i18n-attr="aria-label:schedule.beatsLabel">
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">The wedding day</p>
+                    <p class="story-beat-kicker" data-i18n="schedule.weddingDay">The wedding day</p>
                     <p class="story-beat-time">15:00–16:00</p>
-                    <h2 class="story-beat-title">Ceremony</h2>
+                    <h2 class="story-beat-title" data-i18n="schedule.ceremony">Ceremony</h2>
                 </div>
-                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event"><i class="fa fa-chevron-right"></i></a>
+                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event" data-i18n-attr="aria-label:schedule.nextEvent"><i class="fa fa-chevron-right"></i></a>
             </article>
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">The wedding day</p>
+                    <p class="story-beat-kicker" data-i18n="schedule.weddingDay">The wedding day</p>
                     <p class="story-beat-time">16:00–17:00</p>
-                    <h2 class="story-beat-title">Apéritifs</h2>
-                    <p class="description">An hour for photos and moving everyone to the reception.</p>
-                    <p class="smalldetail">Champagne and canapés will be served at this time.</p>
+                    <h2 class="story-beat-title" data-i18n="schedule.aperitifs">Apéritifs</h2>
+                    <p class="description" data-i18n="schedule.aperitifsDesc">An hour for photos and moving everyone to the reception.</p>
+                    <p class="smalldetail" data-i18n="schedule.aperitifsDetail">Champagne and canapés will be served at this time.</p>
                 </div>
-                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event"><i class="fa fa-chevron-right"></i></a>
+                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event" data-i18n-attr="aria-label:schedule.nextEvent"><i class="fa fa-chevron-right"></i></a>
             </article>
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">The wedding day</p>
+                    <p class="story-beat-kicker" data-i18n="schedule.weddingDay">The wedding day</p>
                     <p class="story-beat-time">17:15</p>
-                    <h2 class="story-beat-title">Be Seated</h2>
+                    <h2 class="story-beat-title" data-i18n="schedule.seated">Be Seated</h2>
                 </div>
-                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event"><i class="fa fa-chevron-right"></i></a>
+                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event" data-i18n-attr="aria-label:schedule.nextEvent"><i class="fa fa-chevron-right"></i></a>
             </article>
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">The wedding day</p>
+                    <p class="story-beat-kicker" data-i18n="schedule.weddingDay">The wedding day</p>
                     <p class="story-beat-time">17:30</p>
-                    <h2 class="story-beat-title">Reception Begins</h2>
+                    <h2 class="story-beat-title" data-i18n="schedule.receptionBegins">Reception Begins</h2>
                 </div>
-                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event"><i class="fa fa-chevron-right"></i></a>
+                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event" data-i18n-attr="aria-label:schedule.nextEvent"><i class="fa fa-chevron-right"></i></a>
             </article>
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">The wedding day</p>
+                    <p class="story-beat-kicker" data-i18n="schedule.weddingDay">The wedding day</p>
                     <p class="story-beat-time">17:30</p>
-                    <h2 class="story-beat-title">Dinner Served</h2>
+                    <h2 class="story-beat-title" data-i18n="schedule.dinner">Dinner Served</h2>
                 </div>
-                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event"><i class="fa fa-chevron-right"></i></a>
+                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event" data-i18n-attr="aria-label:schedule.nextEvent"><i class="fa fa-chevron-right"></i></a>
             </article>
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">The wedding day</p>
+                    <p class="story-beat-kicker" data-i18n="schedule.weddingDay">The wedding day</p>
                     <p class="story-beat-time">18:00</p>
                     <h2 class="story-beat-title">Disco Polo</h2>
                 </div>
-                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event"><i class="fa fa-chevron-right"></i></a>
+                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event" data-i18n-attr="aria-label:schedule.nextEvent"><i class="fa fa-chevron-right"></i></a>
             </article>
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">The wedding day</p>
+                    <p class="story-beat-kicker" data-i18n="schedule.weddingDay">The wedding day</p>
                     <p class="story-beat-time">20:00</p>
                     <h2 class="story-beat-title"><a class="title-link" href="tips.html#schedule" target="_top">Ceilidh</a></h2>
                 </div>
-                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event"><i class="fa fa-chevron-right"></i></a>
+                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event" data-i18n-attr="aria-label:schedule.nextEvent"><i class="fa fa-chevron-right"></i></a>
             </article>
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">The wedding day</p>
+                    <p class="story-beat-kicker" data-i18n="schedule.weddingDay">The wedding day</p>
                     <p class="story-beat-time">21:30</p>
-                    <h2 class="story-beat-title">Dinner Service Continues</h2>
+                    <h2 class="story-beat-title" data-i18n="schedule.dinnerMore">Dinner Service Continues</h2>
                 </div>
-                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event"><i class="fa fa-chevron-right"></i></a>
+                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event" data-i18n-attr="aria-label:schedule.nextEvent"><i class="fa fa-chevron-right"></i></a>
             </article>
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">The wedding day</p>
+                    <p class="story-beat-kicker" data-i18n="schedule.weddingDay">The wedding day</p>
                     <p class="story-beat-time">22:30</p>
-                    <h2 class="story-beat-title">Disco Polo Continues</h2>
+                    <h2 class="story-beat-title" data-i18n="schedule.discoPoloMore">Disco Polo Continues</h2>
                 </div>
-                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event"><i class="fa fa-chevron-right"></i></a>
+                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event" data-i18n-attr="aria-label:schedule.nextEvent"><i class="fa fa-chevron-right"></i></a>
             </article>
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">The wedding day</p>
+                    <p class="story-beat-kicker" data-i18n="schedule.weddingDay">The wedding day</p>
                     <p class="story-beat-time">23:00</p>
-                    <h2 class="story-beat-title">Cake</h2>
+                    <h2 class="story-beat-title" data-i18n="schedule.cake">Cake</h2>
                 </div>
-                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event"><i class="fa fa-chevron-right"></i></a>
+                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event" data-i18n-attr="aria-label:schedule.nextEvent"><i class="fa fa-chevron-right"></i></a>
             </article>
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">The wedding day</p>
+                    <p class="story-beat-kicker" data-i18n="schedule.weddingDay">The wedding day</p>
                     <p class="story-beat-time">00:00</p>
                     <h2 class="story-beat-title">Oczepiny</h2>
-                    <p class="smalldetail">Traditional Polish after-wedding dance.</p>
+                    <p class="smalldetail" data-i18n="schedule.oczepinyDesc">Traditional Polish after-wedding dance.</p>
                 </div>
-                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event"><i class="fa fa-chevron-right"></i></a>
+                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event" data-i18n-attr="aria-label:schedule.nextEvent"><i class="fa fa-chevron-right"></i></a>
             </article>
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">The wedding day</p>
+                    <p class="story-beat-kicker" data-i18n="schedule.weddingDay">The wedding day</p>
                     <p class="story-beat-time">00:15</p>
-                    <h2 class="story-beat-title">More snacks</h2>
+                    <h2 class="story-beat-title" data-i18n="schedule.snacks">More snacks</h2>
                 </div>
-                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event"><i class="fa fa-chevron-right"></i></a>
+                <a class="story-beat-hint is-next" href="#timetable" aria-label="Next event" data-i18n-attr="aria-label:schedule.nextEvent"><i class="fa fa-chevron-right"></i></a>
             </article>
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">The wedding day</p>
-                    <p class="story-beat-time">02:00 onwards</p>
-                    <h2 class="story-beat-title">Party Till Last Man Standing</h2>
+                    <p class="story-beat-kicker" data-i18n="schedule.weddingDay">The wedding day</p>
+                    <p class="story-beat-time" data-i18n="schedule.onwards">02:00 onwards</p>
+                    <h2 class="story-beat-title" data-i18n="schedule.lastMan">Party Till Last Man Standing</h2>
                 </div>
-                <a class="story-beat-hint" href="#timetable" aria-label="Full timetable"><i class="fa fa-chevron-down"></i></a>
+                <a class="story-beat-hint" href="#timetable" aria-label="Full timetable" data-i18n-attr="aria-label:schedule.fullTimetable"><i class="fa fa-chevron-down"></i></a>
             </article>
         </div>
 
         <div class="day-story-recap" id="timetable">
             <div class="day-story-recap-inner">
                 <img class="timeline-deco slide-in-blurred-bl dur-2" src="assets/cow.png" alt="">
-                <p class="bigtext">Timetable</p>
+                <p class="bigtext" data-i18n="schedule.timetable">Timetable</p>
                 <ol class="timeline">
                     <li class="timeline-item">
                         <span class="timeline-time">15:00–16:00</span>
                         <span class="timeline-dot" aria-hidden="true"></span>
                         <div class="timeline-event">
-                            <h3>Ceremony</h3>
+                            <h3 data-i18n="schedule.ceremony">Ceremony</h3>
                         </div>
                     </li>
                     <li class="timeline-item">
                         <span class="timeline-time">16:00–17:00</span>
                         <span class="timeline-dot" aria-hidden="true"></span>
                         <div class="timeline-event">
-                            <h3>Apéritifs</h3>
-                            <p class="description">An hour for photos and moving everyone to the reception.</p>
-                            <p class="smalldetail">Champagne and canapés will be served at this time.</p>
+                            <h3 data-i18n="schedule.aperitifs">Apéritifs</h3>
+                            <p class="description" data-i18n="schedule.aperitifsDesc">An hour for photos and moving everyone to the reception.</p>
+                            <p class="smalldetail" data-i18n="schedule.aperitifsDetail">Champagne and canapés will be served at this time.</p>
                         </div>
                     </li>
                     <li class="timeline-item">
                         <span class="timeline-time">17:15</span>
                         <span class="timeline-dot" aria-hidden="true"></span>
                         <div class="timeline-event">
-                            <h3>Be Seated</h3>
+                            <h3 data-i18n="schedule.seated">Be Seated</h3>
                         </div>
                     </li>
                     <li class="timeline-item">
                         <span class="timeline-time">17:30</span>
                         <span class="timeline-dot" aria-hidden="true"></span>
                         <div class="timeline-event">
-                            <h3>Reception Begins</h3>
+                            <h3 data-i18n="schedule.receptionBegins">Reception Begins</h3>
                         </div>
                     </li>
                     <li class="timeline-item">
                         <span class="timeline-time">17:30</span>
                         <span class="timeline-dot" aria-hidden="true"></span>
                         <div class="timeline-event">
-                            <h3>Dinner Served</h3>
+                            <h3 data-i18n="schedule.dinner">Dinner Served</h3>
                         </div>
                     </li>
                     <li class="timeline-item">
@@ -268,21 +270,21 @@
                         <span class="timeline-time">21:30</span>
                         <span class="timeline-dot" aria-hidden="true"></span>
                         <div class="timeline-event">
-                            <h3>Dinner Service Continues</h3>
+                            <h3 data-i18n="schedule.dinnerMore">Dinner Service Continues</h3>
                         </div>
                     </li>
                     <li class="timeline-item">
                         <span class="timeline-time">22:30</span>
                         <span class="timeline-dot" aria-hidden="true"></span>
                         <div class="timeline-event">
-                            <h3>Disco Polo Continues</h3>
+                            <h3 data-i18n="schedule.discoPoloMore">Disco Polo Continues</h3>
                         </div>
                     </li>
                     <li class="timeline-item">
                         <span class="timeline-time">23:00</span>
                         <span class="timeline-dot" aria-hidden="true"></span>
                         <div class="timeline-event">
-                            <h3>Cake</h3>
+                            <h3 data-i18n="schedule.cake">Cake</h3>
                         </div>
                     </li>
                     <li class="timeline-item">
@@ -290,21 +292,21 @@
                         <span class="timeline-dot" aria-hidden="true"></span>
                         <div class="timeline-event">
                             <h3>Oczepiny</h3>
-                            <p class="smalldetail">Traditional Polish after-wedding dance.</p>
+                            <p class="smalldetail" data-i18n="schedule.oczepinyDesc">Traditional Polish after-wedding dance.</p>
                         </div>
                     </li>
                     <li class="timeline-item">
                         <span class="timeline-time">00:15</span>
                         <span class="timeline-dot" aria-hidden="true"></span>
                         <div class="timeline-event">
-                            <h3>More snacks</h3>
+                            <h3 data-i18n="schedule.snacks">More snacks</h3>
                         </div>
                     </li>
                     <li class="timeline-item">
-                        <span class="timeline-time">02:00 onwards</span>
+                        <span class="timeline-time" data-i18n="schedule.onwards">02:00 onwards</span>
                         <span class="timeline-dot" aria-hidden="true"></span>
                         <div class="timeline-event">
-                            <h3>Party till Last Man Standing</h3>
+                            <h3 data-i18n="schedule.lastMan">Party till Last Man Standing</h3>
                         </div>
                     </li>
                 </ol>
@@ -317,48 +319,48 @@
 
 
     <section id="day2" class="standard alt day-story">
-        <div class="day-story-beats" tabindex="0" aria-label="Events, scroll sideways">
+        <div class="day-story-beats" tabindex="0" aria-label="Events, scroll sideways" data-i18n-attr="aria-label:schedule.beatsLabel">
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">Day 2</p>
+                    <p class="story-beat-kicker" data-i18n="schedule.day2">Day 2</p>
                     <p class="story-beat-time">13:00–16:00</p>
-                    <h2 class="story-beat-title">BBQ</h2>
-                    <p class="description">A traditional Polish after-wedding barbecue and celebration. This is called <span class="daje">poprawiny</span> (pronounced po-pra-VI-ny).</p>
-                    <p class="smalldetail">Attendance is entirely optional, but we would love to see you there.</p>
+                    <h2 class="story-beat-title" data-i18n="schedule.bbq">BBQ</h2>
+                    <p class="description" data-i18n="schedule.bbqDesc">A traditional Polish after-wedding barbecue and celebration. This is called <span class="daje">poprawiny</span> (pronounced po-pra-VI-ny).</p>
+                    <p class="smalldetail" data-i18n="schedule.bbqOptional">Attendance is entirely optional, but we would love to see you there.</p>
                 </div>
-                <a class="story-beat-hint is-next" href="#day2-timetable" aria-label="Next event"><i class="fa fa-chevron-right"></i></a>
+                <a class="story-beat-hint is-next" href="#day2-timetable" aria-label="Next event" data-i18n-attr="aria-label:schedule.nextEvent"><i class="fa fa-chevron-right"></i></a>
             </article>
             <article class="story-beat">
                 <div class="story-beat-inner">
-                    <p class="story-beat-kicker">Day 2</p>
+                    <p class="story-beat-kicker" data-i18n="schedule.day2">Day 2</p>
                     <p class="story-beat-time">17:00</p>
-                    <h2 class="story-beat-title">Head home</h2>
-                    <p class="description">Safe travels after an exciting week.</p>
+                    <h2 class="story-beat-title" data-i18n="schedule.home">Head home</h2>
+                    <p class="description" data-i18n="schedule.homeDesc">Safe travels after an exciting week.</p>
                 </div>
-                <a class="story-beat-hint" href="#day2-timetable" aria-label="Full timetable"><i class="fa fa-chevron-down"></i></a>
+                <a class="story-beat-hint" href="#day2-timetable" aria-label="Full timetable" data-i18n-attr="aria-label:schedule.fullTimetable"><i class="fa fa-chevron-down"></i></a>
             </article>
         </div>
 
         <div class="day-story-recap" id="day2-timetable">
             <div class="day-story-recap-inner">
                 <img class="timeline-deco slide-in-blurred-bl dur-2" src="assets/bbq.png" alt="">
-                <p class="bigtext">Day 2</p>
+                <p class="bigtext" data-i18n="schedule.day2">Day 2</p>
                 <ol class="timeline">
                     <li class="timeline-item">
                         <span class="timeline-time">13:00–16:00</span>
                         <span class="timeline-dot" aria-hidden="true"></span>
                         <div class="timeline-event">
-                            <h3>BBQ</h3>
-                            <p class="description">A traditional Polish after-wedding barbecue and celebration. This is called <span class="daje">poprawiny</span> (pronounced po-pra-VI-ny).</p>
-                            <p class="smalldetail">Leftovers and beers. A very casual affair.</p>
+                            <h3 data-i18n="schedule.bbq">BBQ</h3>
+                            <p class="description" data-i18n="schedule.bbqDesc">A traditional Polish after-wedding barbecue and celebration. This is called <span class="daje">poprawiny</span> (pronounced po-pra-VI-ny).</p>
+                            <p class="smalldetail" data-i18n="schedule.bbqCasual">Leftovers and beers. A very casual affair.</p>
                         </div>
                     </li>
                     <li class="timeline-item">
                         <span class="timeline-time">17:00</span>
                         <span class="timeline-dot" aria-hidden="true"></span>
                         <div class="timeline-event">
-                            <h3>Head home</h3>
-                            <p class="description">Safe travels after an exciting week.</p>
+                            <h3 data-i18n="schedule.home">Head home</h3>
+                            <p class="description" data-i18n="schedule.homeDesc">Safe travels after an exciting week.</p>
                         </div>
                     </li>
                 </ol>
@@ -373,30 +375,30 @@
     
     <section id="menu" class="standard">
         <img class="slide-in-blurred-bottom dur-350" width=20% src="assets/pierogi.png">
-        <p class="bigtext">
+        <p class="bigtext" data-i18n="schedule.pierogi">
         Pierogi and vodka.<br/> What else do you want?
         </p>
         <div class="divider bottom">
             <div class="columns">
                 <div class="column">
-                    <p class="subtext">
+                    <p class="subtext" data-i18n="schedule.vodka">
                     <img src="assets/icon_wine.png" class="icon"> Vodka served thourghout the night, and a bar <br/>
                     </p>
                 </div>
                 <div class="column">
-                    <p class="subtext">
+                    <p class="subtext" data-i18n="schedule.lunch">
                     <img src="assets/icon_food.png" class="icon"> Lunch </p>
                     <div class="divider"></div>
-                    <p>
+                    <p data-i18n="schedule.lunchList">
                     pierogi <br/> 
                     bigos <br/> 
                     kielbasa <br/> 
                     other polish delicacies <br/>
                     </p>
                     <div class="divider"></div>
-                    <p class="subtext">
+                    <p class="subtext" data-i18n="schedule.dinnerMenu">
                     <img src="assets/icon_food.png" class="icon"> Dinner </p>
-                    <p>
+                    <p data-i18n="schedule.dinnerList">
                     Golonka<br/>
                     Zurek<br/>
                     Placki ziemniaczane<br/>
