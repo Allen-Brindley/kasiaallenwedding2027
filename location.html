@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Kasia & Allen | The Location </title>
+    <title data-i18n="location.title">Kasia & Allen | The Location </title>
     <link rel="shortcut icon" type="image/png" href="assets/favicon.ico">
     <!-- <link rel="apple-touch-icon" href="/assets/favicon.ico">
     <link rel="icon" sizes="192x192" href="/assets/favicon.ico"> -->
@@ -32,6 +32,8 @@
         href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css" media="all">
+    <script src="i18n.js"></script>
+    <script src="lang.js"></script>
     <script>
         (function () {
             if (localStorage.getItem('weddingAccess') === 'true') return;
@@ -46,7 +48,7 @@
     <section class="hero">
         <img class="img-over img-bottom img-right slide-in-blurred-br dur-2" src="assets/Pappagalli.png">
         <div>
-            <h1>
+            <h1 data-i18n="location.heading">
                 Some suggestions on where to <span class="daje">stay</span>, how to get <span class="daje">there</span>,
                 and what to <span class="daje">eat</span> and <span class="daje">drink</span>
             </h1>
@@ -57,14 +59,14 @@
                 <div class="test">
                     <img src="assets/home_icon.png">
                     <div>
-                        <p>Take me back. <span class="daje">Now.</span></p>
+                        <p data-i18n="nav.back">Take me back. <span class="daje">Now.</span></p>
                     </div>
                 </div>
             </a>
             <div class="menu">
-                <a href="#location">Get there</a>
-                <a href="#accomodations">Sleep</a>
-                <a href="#drink">Eat & Drink</a>
+                <a href="#location" data-i18n="nav.getThere">Get there</a>
+                <a href="#accomodations" data-i18n="nav.sleep">Sleep</a>
+                <a href="#drink" data-i18n="nav.eatDrink">Eat & Drink</a>
             </div>
             <div class="rsvp">
                 <a href="https://forms.gle/PW3x6ZT194WZ2Gmx9" target="_blank">
@@ -78,7 +80,7 @@
     </section>
     <section id="location" class="standard">
         <div>
-        <p class="bigtext">
+        <p class="bigtext" data-i18n="location.dayBefore">
             The day before the wedding we will stay in <a href="https://www.google.pl/maps/place/Wiktorowo,+Poland/@52.8152287,17.8541399,15z/data=!3m1!4b1!4m17!1m10!3m9!1s0x470361e4d3c17a89:0x135059415e719ac1!2sO%C5%9Brodek+Wypoczynkowy+Wiktorowo!5m2!4m1!1i2!8m2!3d52.8221244!4d17.859478!16s%2Fg%2F1tg_vssp!3m5!1s0x470361492bfed223:0x2edcb3784bdf656e!8m2!3d52.8080925!4d17.8558441!16s%2Fg%2F120z71f0?entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank"> <span class="daje">Wiktorowo</span></a>. <br/>
 If you want to join us earlier we will organise an <em>aperitivo</em> on Tuesday.
 </p>
@@ -86,31 +88,31 @@ If you want to join us earlier we will organise an <em>aperitivo</em> on Tuesday
 <div class="columns">
     <div class="column">
         <div class="map-embed">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d310288.18799132976!2d16.97683555306021!3d52.585406671820024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x470444451b2bf501%3A0xca22d4546a9c4cb4!2sPozna%C5%84%20Airport%2C%20Bukowska%20285%2C%2060-189%20Pozna%C5%84%2C%20Poland!3m2!1d52.4205591!2d16.8310525!4m5!1s0x470366b26320adbf%3A0xb6e5c3083d603bc2!2sWiktorowo%2022%2C%2088-410%20Wiktorowo%2C%20Poland!3m2!1d52.8219986!2d17.859392!5e0!3m2!1sen!2suk!4v1781647346519!5m2!1sen!2suk" title="Map from Poznań Airport to Wiktorowo" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d310288.18799132976!2d16.97683555306021!3d52.585406671820024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x470444451b2bf501%3A0xca22d4546a9c4cb4!2sPozna%C5%84%20Airport%2C%20Bukowska%20285%2C%2060-189%20Pozna%C5%84%2C%20Poland!3m2!1d52.4205591!2d16.8310525!4m5!1s0x470366b26320adbf%3A0xb6e5c3083d603bc2!2sWiktorowo%2022%2C%2088-410%20Wiktorowo%2C%20Poland!3m2!1d52.8219986!2d17.859392!5e0!3m2!1sen!2suk!4v1781647346519!5m2!1sen!2suk" title="Map from Poznań Airport to Wiktorowo" data-i18n-attr="title:location.mapTitle" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     </div>
     <div class="column">
-        <p class="subtext">
+        <p class="subtext" data-i18n="location.fly">
         To get there you can take a flight to either Poznan, Wroclaw, or Gdansk. <br/>
         The drive from Poznan airport is around one hour and a half. <br/>
         If needed or there is demand we can organise a shuttle from Poznan airport to the venue or pick you up at the airport
         <br/>
         Look here for <a href="https://www.booking.com/searchresults.en-gb.html?ss=Wiktorowo&ssne=Wiktorowo&ssne_untouched=Wiktorowo&efdco=1&label=gog235jc-10CAsotgFCF3ctb2xjaGFjaC1sb2thbC1icnpvemthSAlYA2hQiAEBmAEzuAEXyAEM2AED6AEB-AEBiAIBqAIBuAKcgcfRBsACAdICJDFlY2MwNTU4LTU0NWUtNDdlYy1hM2NjLTllMDQ0ZDRlNTJiYtgCAeACAQ&aid=356980&lang=en-gb&sb=1&src_elem=sb&src=city&dest_id=-535406&dest_type=city&checkin=2027-06-21&checkout=2027-06-26&group_adults=2&no_rooms=1&group_children=0&sb_lp=1" target="_blank"><span class="subtext"> a list of accomdation near Wiktorowo</span></a>.
         </p>
-        <p class="subtext">
+        <p class="subtext" data-i18n="location.car">
         </br>
             Renting a car would be the easiest way to the venue, also if you want to explore the area. 
             There is plenty of parking available at the venue.
             We've personally used had good experiences renting from <a href="https://www.zestcarrental.com/" target="_blank"><span class="subtext">Zest Car Rental</span></a>
         </p>
-        <p class="subtext">
+        <p class="subtext" data-i18n="location.train">
         </br>   
             If you prefer to take a train, you can take the train to Inowroclaw, which is the nearest town to the venue.
             The train station is a 35 minute drive from the venue.
         </br>
             Look here for <a href="https://www.intercity.pl/en/" target="_blank"><span class="subtext"> a list of trains to Inowroclaw</span></a>.
         </p>
-        <p class="subtext">
+        <p class="subtext" data-i18n="location.bus">
             </br>
             If you prefer to take a bus, you can take the bus to Znin, which is the nearest town to the venue.
             The bus station is a 10 minute drive from the venue.
@@ -126,28 +128,28 @@ If you want to join us earlier we will organise an <em>aperitivo</em> on Tuesday
             </a>
     </section>    
     <section id="accomodations" class="standard alt">
-        <p class="bigtext">
+        <p class="bigtext" data-i18n="location.altTitle">
 Alternative options nearby the wedding location</p>
-<p class="subtext">There is plenty of accomodation at the venue, which we will help book for you.</p>
-<p class="subtext">Please filll in the RSVP form<a href="https://forms.gle/PW3x6ZT194WZ2Gmx9" target="_blank">here</a></p>
-<p class="subtext">If you prefer to stay in a hotel, there are some options nearby</p>
+<p class="subtext" data-i18n="location.altVenue">There is plenty of accomodation at the venue, which we will help book for you.</p>
+<p class="subtext" data-i18n="location.altRsvp">Please filll in the RSVP form<a href="https://forms.gle/PW3x6ZT194WZ2Gmx9" target="_blank">here</a></p>
+<p class="subtext" data-i18n="location.altHotels">If you prefer to stay in a hotel, there are some options nearby</p>
         <div class="columns">
 
             <div class="column">
-                <p class="smalldetail">Hotel & Spa</p>
+                <p class="smalldetail" data-i18n="location.hotelSpa">Hotel & Spa</p>
                 <div class="divider"></div>
                 <h3>Herbarium Hotel & Spa</h3>
-                <p class="description">
+                <p class="description" data-i18n="location.herbarium">
 This hotel is a 16 minute drive away from the venue, has a spa and pool should you need to recover. </p>
-                <a href="https://www.booking.com/hotel/pl/herbarium-amp-spa.en-gb.html?label=gog235jc-10CAsotgFCF3ctb2xjaGFjaC1sb2thbC1icnpvemthSAlYA2hQiAEBmAEzuAEXyAEM2AED6AEB-AEBiAIBqAIBuAKcgcfRBsACAdICJDFlY2MwNTU4LTU0NWUtNDdlYy1hM2NjLTllMDQ0ZDRlNTJiYtgCAeACAQ&aid=356980&ucfs=1&checkin=2027-06-21&checkout=2027-06-26&dest_id=-535406&dest_type=city&group_adults=2&no_rooms=1&group_children=0&nflt=ht_id%3D204&srpvid=449f975c49b105a9&srepoch=1781645638&atlas_src=sr_iw_title" target="_blank">Open in booking.com</a>
+                <a href="https://www.booking.com/hotel/pl/herbarium-amp-spa.en-gb.html?label=gog235jc-10CAsotgFCF3ctb2xjaGFjaC1sb2thbC1icnpvemthSAlYA2hQiAEBmAEzuAEXyAEM2AED6AEB-AEBiAIBqAIBuAKcgcfRBsACAdICJDFlY2MwNTU4LTU0NWUtNDdlYy1hM2NjLTllMDQ0ZDRlNTJiYtgCAeACAQ&aid=356980&ucfs=1&checkin=2027-06-21&checkout=2027-06-26&dest_id=-535406&dest_type=city&group_adults=2&no_rooms=1&group_children=0&nflt=ht_id%3D204&srpvid=449f975c49b105a9&srepoch=1781645638&atlas_src=sr_iw_title" target="_blank" data-i18n="location.openBooking">Open in booking.com</a>
             </div>
             <div class="column">
                 <p class="smalldetail">Hotel</p>
                 <div class="divider"></div>
                 <h3>Gościniec Krys</h3>
-                <p class="description">
+                <p class="description" data-i18n="location.krys">
 Gościniec Krys is also a 16 minute drive from the venue and is located in Żnin, the nearest town. </p>
-                <a href="https://www.booking.com/hotel/pl/gosciniec-krys.en-gb.html?label=gog235jc-10CAsotgFCF3ctb2xjaGFjaC1sb2thbC1icnpvemthSAlYA2hQiAEBmAEzuAEXyAEM2AED6AEB-AEBiAIBqAIBuAKcgcfRBsACAdICJDFlY2MwNTU4LTU0NWUtNDdlYy1hM2NjLTllMDQ0ZDRlNTJiYtgCAeACAQ&aid=356980&ucfs=1&checkin=2027-06-21&checkout=2027-06-26&dest_id=-535406&dest_type=city&group_adults=2&no_rooms=1&group_children=0&nflt=ht_id%3D204&srpvid=449f975c49b105a9&srepoch=1781645669&atlas_src=sr_iw_title" target="_blank">Open in booking.com</a>
+                <a href="https://www.booking.com/hotel/pl/gosciniec-krys.en-gb.html?label=gog235jc-10CAsotgFCF3ctb2xjaGFjaC1sb2thbC1icnpvemthSAlYA2hQiAEBmAEzuAEXyAEM2AED6AEB-AEBiAIBqAIBuAKcgcfRBsACAdICJDFlY2MwNTU4LTU0NWUtNDdlYy1hM2NjLTllMDQ0ZDRlNTJiYtgCAeACAQ&aid=356980&ucfs=1&checkin=2027-06-21&checkout=2027-06-26&dest_id=-535406&dest_type=city&group_adults=2&no_rooms=1&group_children=0&nflt=ht_id%3D204&srpvid=449f975c49b105a9&srepoch=1781645669&atlas_src=sr_iw_title" target="_blank" data-i18n="location.openBooking">Open in booking.com</a>
             </div>
         </div>
         <a href="#drink" class="bounce arrow-bounce focus-in dur-4">
@@ -156,18 +158,18 @@ Gościniec Krys is also a 16 minute drive from the venue and is located in Żnin
     </section>
     <section id="drink" class="standard">
         <img class="slide-in-blurred-bottom dur-350" width=20% src="assets/pierogi.png">
-        <p class="bigtext">
+        <p class="bigtext" data-i18n="location.pierogi">
 Pierogi and vodka.<br/> What else could you want?<br/></p>
         <div class="divider bottom"></div>
-        <p class="subtext">
+        <p class="subtext" data-i18n="location.foods">
             Some recommended foods to try during your time in Poland <br/>
         </br>
         </p>
         <div class="columns">
             <div class="column">
-                <h2 class="smalldetail"><img src="assets/icon_food.png" class="icon">Eat</h2>
+                <h2 class="smalldetail"><img src="assets/icon_food.png" class="icon"><span data-i18n="location.eat">Eat</span></h2>
                 <div class="divider"></div>
-                <p class="subtext">
+                <p class="subtext" data-i18n="location.eatList">
                     Pierogi </br>
                     Kielbasa </br>
                     Bigos </br>
@@ -175,9 +177,9 @@ Pierogi and vodka.<br/> What else could you want?<br/></p>
                 </p>
             </div>
             <div class="column">
-                <h2 class="smalldetail"><img src="assets/icon_wine.png" class="icon">Drink</h2>
+                <h2 class="smalldetail"><img src="assets/icon_wine.png" class="icon"><span data-i18n="location.drink">Drink</span></h2>
                 <div class="divider"></div>
-                <p class="subtext">
+                <p class="subtext" data-i18n="location.drinkList">
                     Vodka - wodka</br>
                     Honey Beer - piwo miodowe </br>
                 </p>
