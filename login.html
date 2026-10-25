@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Kasia & Allen | The Login </title>
+    <title data-i18n="login.title">Kasia & Allen | The Login </title>
     <link rel="shortcut icon" type="image/png" href="assets/favicon.ico">
     <!-- <link rel="apple-touch-icon" href="/assets/favicon.ico">
     <link rel="icon" sizes="192x192" href="/assets/favicon.ico"> -->
@@ -32,6 +32,8 @@
         href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css" media="all">
+    <script src="i18n.js"></script>
+    <script src="lang.js"></script>
     <style>
         .internal .hero .img-top.img-left {
             width: min(30vw, 516px);
@@ -123,16 +125,16 @@
         <img class="img-over img-bottom img-centre slide-in-blurred-br dur-2" src="assets/ruby.png">
         <img class="img-over img-bottom img-right slide-in-blurred-br dur-2" src="assets/HUNTER.png">
         <div>
-            <h1>
+            <h1 data-i18n="login.heading">
                 Please enter the password.
             </h1>
             <form id="loginForm" novalidate>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
                     <div class="pass-wrap" style="position: relative; display: inline-flex; align-items: center;">
-                        <input type="password" id="pass" name="password" required style="padding-right: 2rem;" />
-                        <button type="button" id="togglePassword" aria-label="Show password" style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: url('assets/eye.png') center/contain no-repeat; width: 18px; height: 18px; border: none; cursor: pointer; padding: 0; background-color: transparent;"></button>
+                        <input type="password" id="pass" name="password" required aria-label="Password" data-i18n-attr="aria-label:login.password" style="padding-right: 2rem;" />
+                        <button type="button" id="togglePassword" aria-label="Show password" data-i18n-attr="aria-label:login.showPassword" style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: url('assets/eye.png') center/contain no-repeat; width: 18px; height: 18px; border: none; cursor: pointer; padding: 0; background-color: transparent;"></button>
                     </div>
-                    <button type="submit" class="menu">Enter</button>
+                    <button type="submit" class="menu" data-i18n="login.enter">Enter</button>
                 </div>
                 <p id="errorMsg" style="color: #b00020; margin-top: 0.75rem;"></p>
             </form>
@@ -169,12 +171,12 @@
                         localStorage.setItem('weddingAccess', 'true');
                         window.location.href = 'home.html';
                     } else {
-                        errorMsg.textContent = 'That password is incorrect. Please try again.';
+                        siteI18n.setText(errorMsg, 'login.error.wrong', 'That password is incorrect. Please try again.');
                         input.value = '';
                         input.focus();
                     }
                 } catch (err) {
-                    errorMsg.textContent = 'Login could not verify the password. Please try again.';
+                    siteI18n.setText(errorMsg, 'login.error.failed', 'Login could not verify the password. Please try again.');
                 }
             });
         </script>

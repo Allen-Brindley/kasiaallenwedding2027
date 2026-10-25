@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Kasia & Allen | The Schedule </title>
+    <title data-i18n="tips.title">Kasia & Allen | The Schedule </title>
     <link rel="shortcut icon" type="image/png" href="assets/favicon.ico">
     <!-- <link rel="apple-touch-icon" href="assets/favicon.ico">
     <link rel="icon" sizes="192x192" href="assets/favicon.ico"> -->
@@ -32,6 +32,8 @@
         href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css" media="all">
+    <script src="i18n.js"></script>
+    <script src="lang.js"></script>
     <script>
         (function () {
             if (localStorage.getItem('weddingAccess') === 'true') return;
@@ -71,25 +73,25 @@
 
 <body class="internal tips">
     <section class="hero">
-            <h1>
+            <h1 data-i18n="tips.heading">
                 How to survive a  <span class="daje">Polish</span> wedding </br> as a Brit
             </h1>
         </div>
         <div class="divider bottom"></div>
         <br></br>
-        <h1>PACE YOURSELF</h1>
+        <h1 data-i18n="tips.pace">PACE YOURSELF</h1>
         <br></br>
-        <h2>Food and spirits will always be on offer</h2>
-        <h2>Drink plenty of water</h2>
+        <h2 data-i18n="tips.onOffer">Food and spirits will always be on offer</h2>
+        <h2 data-i18n="tips.water">Drink plenty of water</h2>
         <br></br>
         <div class="columns">
             <div class="column">
-                <h1>Do not drink too much <span class="daje">at once</span></h1>
-                <h3>But DRINK LOTS over the <span class="daje">whole night</span></h3>
+                <h1 data-i18n="tips.drinkOnce">Do not drink too much <span class="daje">at once</span></h1>
+                <h3 data-i18n="tips.drinkNight">But DRINK LOTS over the <span class="daje">whole night</span></h3>
             </div>
             <div class="column">
-                <h1>Do not eat too much <span class="daje">at once</span></h1>
-                    <h3>But EAT LOTS over the <span class="daje">whole night</span></h3>
+                <h1 data-i18n="tips.eatOnce">Do not eat too much <span class="daje">at once</span></h1>
+                    <h3 data-i18n="tips.eatNight">But EAT LOTS over the <span class="daje">whole night</span></h3>
 
             </div>
         </div>
@@ -100,14 +102,14 @@
                 <div class="test">
                     <img src="assets/home_icon.png">
                     <div>
-                        <p>Take me back. <span class="daje">Now.</span></p>
+                        <p data-i18n="nav.back">Take me back. <span class="daje">Now.</span></p>
                     </div>
                 </div>
             </a>
             <div class="menu">
-                <a href="location.html" target="_top">How to get there</a>
-                <a href="#accomodations">Sleep</a>
-                <a href="#drink">Eat & Drink</a>
+                <a href="location.html" target="_top" data-i18n="nav.howToGetThere">How to get there</a>
+                <a href="#accomodations" data-i18n="nav.sleep">Sleep</a>
+                <a href="#drink" data-i18n="nav.eatDrink">Eat & Drink</a>
             </div>
             <div class="rsvp">
                 <a href="https://forms.gle/PW3x6ZT194WZ2Gmx9" target="_blank">
@@ -143,13 +145,13 @@
     <section id="polski" class="standard alt">
                 <iframe
                     src="https://www.youtube.com/embed/3HVkYel8QFI?rel=0&autoplay=1&mute=1&playsinline=1"
-                    title="Polish wedding tips"
+                    title="Polish wedding tips" data-i18n-attr="title:tips.videoTitle"
                     frameborder="0"
                     loading="eager"
                     referrerpolicy="strict-origin-when-cross-origin"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
-                <a href="https://www.youtube.com/watch?v=3HVkYel8QFI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+                <a href="https://www.youtube.com/watch?v=3HVkYel8QFI" target="_blank" rel="noopener noreferrer" data-i18n="tips.watch">Watch on YouTube</a>
     </section>
 </body>
 </html>
