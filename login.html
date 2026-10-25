@@ -33,6 +33,16 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css" media="all">
     <style>
+        .internal .hero .img-top.img-left {
+            width: min(30vw, 516px);
+        }
+        /* Narrow or short screens (phones, high browser zoom) pull the form
+           towards the top-left, so cap the image by height too. */
+        @media (max-width: 750px), (max-height: 500px) {
+            .internal .hero .img-top.img-left {
+                width: min(35vw, 25vh);
+            }
+        }
         .internal .hero .img-bottom.img-right {
             width: 30vw;
             right: calc(-10% + 50px);
@@ -44,8 +54,26 @@
          width: 20vw;
          left: calc(-5% + 30px);
         }
-        #pass {
+        /* Let the form shrink to fit narrow screens (phones, high zoom). */
+        .internal section.hero > div,
+        #loginForm {
+            max-width: 100%;
+            min-width: 0;
+        }
+        @media (max-width: 600px) {
+            .internal section.hero {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+        }
+        .pass-wrap {
             width: 300px;
+            max-width: 100%;
+        }
+        #pass {
+            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
             height: 40px;
             font-size: 1rem;
             padding: 0.5rem 2.5rem 0.5rem 0.75rem;
@@ -100,7 +128,7 @@
             </h1>
             <form id="loginForm" novalidate>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-                    <div style="position: relative; display: inline-flex; align-items: center;">
+                    <div class="pass-wrap" style="position: relative; display: inline-flex; align-items: center;">
                         <input type="password" id="pass" name="password" required style="padding-right: 2rem;" />
                         <button type="button" id="togglePassword" aria-label="Show password" style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: url('assets/eye.png') center/contain no-repeat; width: 18px; height: 18px; border: none; cursor: pointer; padding: 0; background-color: transparent;"></button>
                     </div>
