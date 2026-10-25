@@ -836,8 +836,9 @@ p.description {
 }
 
 /* Rooms at the venue: a white box in the beige accommodation section, with
-   text beside or above a card for each room. Each card steps through that
-   room's photos. */
+   text beside or above the room cards. The cards are fanned out like a hand
+   of cards: one at the front, the others peeking out behind it. Clicking a
+   card behind brings it to the front. Each card steps through its photos. */
 .rooms-box {
     flex-direction: row;
     align-items: center;
@@ -845,7 +846,7 @@ p.description {
     width: 100%;
     max-width: 72rem;
     box-sizing: border-box;
-    margin: 3rem 0;
+    margin: 0 0 4rem;
     padding: 2.5rem;
     border-radius: 20px;
     background-color: white;
@@ -872,26 +873,107 @@ p.description {
     line-height: 1.5;
 }
 
+.rooms-text p.description + p.smalldetail {
+    margin-top: 1.25rem;
+}
+
 .rooms-cards {
-    flex: 3 1 0;
+    /* Card width and how far the cards behind fan out */
+    --card-width: min(56%, 22rem);
+    --fan-shift: 24%;
+    --fan-turn: 6deg;
+    display: grid;
+    /* One full-width cell that all the cards share */
+    grid-template-columns: minmax(0, 1fr);
+    place-items: end center;
+    flex: 1.5 1 0;
     min-width: 0;
-    flex-direction: row;
-    align-items: stretch;
-    gap: 1.5rem;
     width: 100%;
+    padding: 1rem 0;
 }
 
 .room-card {
     display: flex;
     flex-direction: column;
-    flex: 1 1 0;
-    min-width: 0;
-    max-width: 26rem;
-    aspect-ratio: 4 / 5;
+    position: relative;
+    grid-area: 1 / 1;
+    box-sizing: border-box;
+    width: var(--card-width);
+    aspect-ratio: 2 / 3;
     border-radius: 20px;
     overflow: hidden;
     background-color: var(--beige);
-    box-shadow: var(--shadow-1-elevation-medium);
+    box-shadow: var(--shadow-1-elevation-high);
+    transform-origin: 50% 100%;
+    transition: transform 0.6s cubic-bezier(0.45, 0.05, 0.25, 1), filter 0.6s ease-in-out;
+}
+
+.room-card[data-pos="front"] {
+    z-index: 2;
+}
+
+.room-card[data-pos="left"] {
+    z-index: 1;
+    transform: translateX(calc(var(--fan-shift) * -1)) rotate(calc(var(--fan-turn) * -1)) scale(0.94);
+    filter: brightness(0.92);
+}
+
+.room-card[data-pos="right"] {
+    z-index: 1;
+    transform: translateX(var(--fan-shift)) rotate(var(--fan-turn)) scale(0.94);
+    filter: brightness(0.92);
+}
+
+.room-card:not([data-pos="front"]) .room-arrow,
+.room-card:not([data-pos="front"]) .room-dots {
+    visibility: hidden;
+}
+
+.room-card[data-pos="left"]:hover,
+.room-card[data-pos="right"]:hover {
+    filter: none;
+}
+
+/* Covers a card behind the front one, so clicking anywhere on it brings it
+   to the front. Its label sits in the corner that peeks out. */
+.room-pick {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    padding: 0.75rem;
+    border: 0;
+    border-radius: inherit;
+    background: none;
+    cursor: pointer;
+}
+
+.room-pick[hidden] {
+    display: none;
+}
+
+.room-pick-label {
+    position: absolute;
+    top: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    background-color: rgb(255 255 255 / 0.9);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.8rem;
+    color: var(--green);
+    white-space: nowrap;
+}
+
+.room-card[data-pos="left"] .room-pick-label {
+    left: 0.6rem;
+}
+
+.room-card[data-pos="right"] .room-pick-label {
+    right: 0.6rem;
+}
+
+.room-pick:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: -4px;
 }
 
 .room-gallery {
@@ -997,12 +1079,13 @@ p.description {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .room-photos img {
+    .room-photos img,
+    .room-card {
         transition: none;
     }
 }
 
-/* Text above the cards, which share the full width */
+/* Text above the cards */
 @media (max-width: 1100px) {
     .rooms-box {
         flex-direction: column;
@@ -1017,29 +1100,28 @@ p.description {
 
     .rooms-cards {
         flex: none;
-        justify-content: center;
-        gap: 1rem;
+    }
+}
+
+/* Phones: a bigger front card, with the others only just peeking out */
+@media (max-width: 600px) {
+    .rooms-box {
+        padding: 1.75rem 1rem;
+    }
+
+    .rooms-cards {
+        --card-width: 76%;
+        --fan-shift: 11%;
+        --fan-turn: 4deg;
     }
 
     .room-card .room-name {
         font-size: 1.4rem;
     }
-}
 
-/* Cards one above the other on phones */
-@media (max-width: 600px) {
-    .rooms-box {
-        padding: 1.75rem 1.25rem;
-    }
-
-    .room-card {
-        flex: none;
-        width: 100%;
-    }
-
-    .rooms-cards {
-        flex-direction: column;
-        align-items: center;
+    /* Only a sliver of the cards behind shows, too narrow for a label */
+    .room-pick-label {
+        display: none;
     }
 }
 

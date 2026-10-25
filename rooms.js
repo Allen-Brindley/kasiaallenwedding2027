@@ -102,4 +102,36 @@ var ROOM_PHOTOS = {
             }
         });
     });
+
+    // The cards are held like a hand of cards: one at the front and one
+    // peeking out on each side. Picking a side card turns the hand so that
+    // card comes to the front, keeping the rooms in order around it.
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.room-card'));
+    var turns = {
+        left: { left: 'front', front: 'right', right: 'left' },
+        right: { left: 'right', front: 'left', right: 'front' }
+    };
+
+    function update() {
+        cards.forEach(function (card) {
+            var front = card.dataset.pos === 'front';
+            // Only the front card's photo controls can be reached
+            card.querySelector('.room-gallery').inert = !front;
+            card.querySelector('.room-pick').hidden = front;
+        });
+    }
+
+    cards.forEach(function (card) {
+        card.querySelector('.room-pick').addEventListener('click', function () {
+            var turn = turns[card.dataset.pos];
+            cards.forEach(function (c) {
+                c.dataset.pos = turn[c.dataset.pos];
+            });
+            update();
+            var controls = card.querySelectorAll('.room-arrow:not([hidden])');
+            (controls[controls.length - 1] || card.querySelector('.room-pick')).focus({ preventScroll: true });
+        });
+    });
+
+    update();
 })();
