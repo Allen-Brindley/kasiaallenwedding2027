@@ -838,6 +838,30 @@ html.schedule-page {
 
 .day-story-beats {
     width: 100%;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: center;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--light-green) transparent;
+}
+
+.day-story-beats::-webkit-scrollbar {
+    height: 6px;
+}
+
+.day-story-beats::-webkit-scrollbar-thumb {
+    background: var(--light-green);
+    border-radius: 3px;
+}
+
+.day-story-beats::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 .story-beat {
@@ -847,8 +871,9 @@ html.schedule-page {
     justify-content: center;
     text-align: center;
     position: relative;
+    flex: 0 0 100%;
     width: 100%;
-    min-height: 50svh;
+    min-height: 60svh;
     padding: 1.5rem 1.5rem;
     box-sizing: border-box;
     scroll-snap-align: center;
@@ -916,6 +941,20 @@ html.schedule-page {
     }
     50% {
         transform: translateY(8px);
+    }
+}
+
+.story-beat-hint.is-next {
+    animation-name: story-hint-nudge;
+}
+
+@keyframes story-hint-nudge {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(8px);
     }
 }
 
